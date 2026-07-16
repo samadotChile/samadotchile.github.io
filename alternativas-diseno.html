@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samadot — Alternativas de diseño para la web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;600;700;800&family=Lora:wght@600;700&family=Nunito:wght@400;700;800;900&family=Manrope:wght@400;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#111318; color:#e8e8ec; font-family:'Inter',system-ui,sans-serif; padding:28px 16px 80px; }
+  .intro { max-width:1100px; margin:0 auto 34px; }
+  .intro h1 { font-size:26px; font-weight:800; letter-spacing:-.5px; }
+  .intro h1 span { color:#31C48D; }
+  .intro p { color:#a8adb8; margin-top:8px; font-size:14.5px; line-height:1.55; max-width:70ch; }
+  .theme-wrap { max-width:1100px; margin:0 auto 46px; border-radius:18px; overflow:hidden; border:1px solid #2a2e38; }
+  .theme-head { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:baseline; padding:16px 22px; background:#1a1d24; border-bottom:1px solid #2a2e38; }
+  .theme-head .num { font-size:13px; font-weight:800; color:#31C48D; letter-spacing:1px; }
+  .theme-head h2 { font-size:19px; font-weight:800; letter-spacing:-.3px; }
+  .theme-head .why { flex-basis:100%; color:#a8adb8; font-size:13.5px; line-height:1.5; }
+  .specs { display:flex; flex-wrap:wrap; gap:14px 26px; padding:13px 22px; background:#15181e; border-top:1px solid #2a2e38; font-size:12.5px; color:#a8adb8; align-items:center; }
+  .specs b { color:#e8e8ec; font-weight:700; }
+  .sw { display:inline-flex; align-items:center; gap:6px; }
+  .sw i { width:16px; height:16px; border-radius:5px; display:inline-block; border:1px solid rgba(255,255,255,.25); }
+
+  /* ====== lienzo común de cada preview ====== */
+  .pv { padding:0; }
+  .pv .nav { display:flex; justify-content:space-between; align-items:center; padding:14px 26px; }
+  .pv .logo { font-weight:800; letter-spacing:3px; font-size:15px; }
+  .pv .nav .links { display:flex; gap:18px; font-size:13px; align-items:center; }
+  .pv .hero { padding:38px 26px 30px; }
+  .pv .kicker { font-size:11.5px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; }
+  .pv h3.big { font-size:34px; line-height:1.12; margin:10px 0 12px; letter-spacing:-.5px; max-width:19ch; }
+  .pv .lead { font-size:15px; line-height:1.6; max-width:52ch; }
+  .pv .ctas { display:flex; gap:12px; margin:20px 0 14px; flex-wrap:wrap; }
+  .pv .btn { padding:11px 20px; font-size:14px; font-weight:700; text-decoration:none; display:inline-block; cursor:pointer; }
+  .pv .chips { display:flex; gap:8px; flex-wrap:wrap; }
+  .pv .chip { font-size:12px; padding:5px 11px; }
+  .pv .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; padding:8px 26px 34px; }
+  .pv .kit { padding:20px; }
+  .pv .k-name { font-size:11px; font-weight:800; letter-spacing:2px; text-transform:uppercase; }
+  .pv .kit h4 { font-size:19px; margin:6px 0 2px; }
+  .pv .k-price { font-size:24px; font-weight:900; margin:8px 0 2px; }
+  .pv .k-note { font-size:11.5px; margin-bottom:12px; }
+  .pv .kit ul { list-style:none; font-size:13px; line-height:1.9; margin-bottom:14px; }
+  .pv .kit .cta { display:block; text-align:center; padding:10px; font-weight:700; font-size:13.5px; }
+  @media (max-width:640px){ .pv h3.big{font-size:27px;} .pv .cards{grid-template-columns:1fr;} }
+
+  /* ============ 1. FUTURISTA — NEÓN ============ */
+  .t1 .pv { background:#05060b; color:#e6f1ff; font-family:'Space Grotesk',sans-serif; background-image:radial-gradient(ellipse 60% 40% at 70% 0%, rgba(34,211,238,.09), transparent), linear-gradient(rgba(34,211,238,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.035) 1px, transparent 1px); background-size:auto, 34px 34px, 34px 34px; }
+  .t1 .nav { border-bottom:1px solid #14202e; }
+  .t1 .logo { font-family:'Chakra Petch',sans-serif; color:#fff; } .t1 .logo b { color:#22d3ee; }
+  .t1 .links { color:#8aa0b8; }
+  .t1 .kicker { color:#22d3ee; }
+  .t1 h3.big { font-family:'Chakra Petch',sans-serif; font-weight:700; color:#fff; text-transform:uppercase; font-size:30px; }
+  .t1 h3.big em { font-style:normal; color:#22d3ee; text-shadow:0 0 22px rgba(34,211,238,.55); }
+  .t1 .lead { color:#8aa0b8; }
+  .t1 .btn-a { background:linear-gradient(90deg,#22d3ee,#38bdf8); color:#03121a; border-radius:6px; box-shadow:0 0 24px rgba(34,211,238,.35); }
+  .t1 .btn-b { background:transparent; color:#22d3ee; border:1px solid #22d3ee66; border-radius:6px; }
+  .t1 .chip { background:#0b1622; border:1px solid #1c3448; color:#9fd8e8; border-radius:4px; font-family:'Chakra Petch',sans-serif; }
+  .t1 .kit { background:linear-gradient(180deg,#0a121d,#070c14); border:1px solid #1a2c40; border-radius:10px; }
+  .t1 .k-name { color:#22d3ee; } .t1 .kit h4 { font-family:'Chakra Petch',sans-serif; color:#fff; }
+  .t1 .k-price { color:#22d3ee; } .t1 .k-note, .t1 .kit ul { color:#8aa0b8; }
+  .t1 .kit .cta { background:#0e2231; color:#22d3ee; border:1px solid #22d3ee55; border-radius:6px; }
+
+  /* ============ 2. SOBRIA — EJECUTIVA ============ */
+  .t2 .pv { background:#fcfcfb; color:#1b1f24; font-family:'Inter',sans-serif; }
+  .t2 .nav { border-bottom:1px solid #e6e8e6; background:#fff; }
+  .t2 .logo { color:#1b1f24; letter-spacing:4px; } .t2 .logo b { color:#14532d; }
+  .t2 .links { color:#5f6b76; }
+  .t2 .hero { background:#fff; }
+  .t2 .kicker { color:#14532d; }
+  .t2 h3.big { font-family:'Source Serif 4',serif; font-weight:600; color:#14211a; }
+  .t2 h3.big em { font-style:italic; color:#14532d; }
+  .t2 .lead { color:#4a555f; }
+  .t2 .btn-a { background:#14532d; color:#fff; border-radius:3px; }
+  .t2 .btn-b { background:#fff; color:#14532d; border:1px solid #14532d; border-radius:3px; }
+  .t2 .chip { background:#f2f5f2; color:#3c4a42; border-radius:3px; border:1px solid #e2e8e2; }
+  .t2 .cards { background:#fcfcfb; }
+  .t2 .kit { background:#fff; border:1px solid #e4e7e4; border-radius:6px; }
+  .t2 .k-name { color:#14532d; } .t2 .kit h4 { font-family:'Source Serif 4',serif; font-weight:700; }
+  .t2 .k-price { color:#14211a; font-weight:700; } .t2 .k-note, .t2 .kit ul { color:#5f6b76; }
+  .t2 .kit .cta { background:#14211a; color:#fff; border-radius:3px; }
+
+  /* ============ 3. HOGAREÑA — CÁLIDA ============ */
+  .t3 .pv { background:#faf5ed; color:#3d3229; font-family:'Nunito',sans-serif; }
+  .t3 .nav { background:#faf5ed; }
+  .t3 .logo { color:#3d3229; } .t3 .logo b { color:#c2683f; }
+  .t3 .links { color:#8a7a6b; }
+  .t3 .kicker { color:#c2683f; letter-spacing:2px; }
+  .t3 h3.big { font-family:'Lora',serif; font-weight:700; color:#4a3527; }
+  .t3 h3.big em { font-style:italic; color:#c2683f; }
+  .t3 .lead { color:#6f6154; }
+  .t3 .btn-a { background:#c2683f; color:#fff; border-radius:999px; box-shadow:0 6px 16px rgba(194,104,63,.28); }
+  .t3 .btn-b { background:#fff; color:#7d9b76; border:2px solid #7d9b76; border-radius:999px; }
+  .t3 .chip { background:#f1e7d8; color:#7a6753; border-radius:999px; }
+  .t3 .kit { background:#fffdf8; border:1px solid #eadfce; border-radius:22px; box-shadow:0 10px 26px rgba(120,90,60,.10); }
+  .t3 .k-name { color:#7d9b76; } .t3 .kit h4 { font-family:'Lora',serif; color:#4a3527; }
+  .t3 .k-price { color:#c2683f; } .t3 .k-note, .t3 .kit ul { color:#8a7a6b; }
+  .t3 .kit .cta { background:#7d9b76; color:#fff; border-radius:999px; }
+
+  /* ============ 4. AMOLED — MARCA SAMADOT ============ */
+  .t4 .pv { background:#000; color:#f2f2f2; font-family:'Manrope',sans-serif; }
+  .t4 .nav { border-bottom:1px solid #1d1d22; }
+  .t4 .logo { color:#fff; } .t4 .logo b { color:#31c48d; }
+  .t4 .links { color:#9a9aa3; }
+  .t4 .kicker { color:#31c48d; }
+  .t4 h3.big { color:#fff; font-weight:800; }
+  .t4 h3.big em { font-style:normal; color:#31c48d; }
+  .t4 .lead { color:#9a9aa3; }
+  .t4 .btn-a { background:#31c48d; color:#04140d; border-radius:12px; }
+  .t4 .btn-b { background:#0d0d0f; color:#31c48d; border:1px solid #234439; border-radius:12px; }
+  .t4 .chip { background:#0d0d0f; border:1px solid #232329; color:#c9c9d1; border-radius:8px; }
+  .t4 .kit { background:#0d0d0f; border:1px solid #1d1d22; border-radius:16px; }
+  .t4 .k-name { color:#31c48d; } .t4 .kit h4 { color:#fff; }
+  .t4 .k-price { color:#ffd166; } .t4 .k-note, .t4 .kit ul { color:#9a9aa3; }
+  .t4 .kit .cta { background:#123126; color:#31c48d; border:1px solid #234439; border-radius:10px; }
+
+  /* ============ 5. COBRE DEL MAULE ============ */
+  .t5 .pv { background:#0f172a; color:#e8edf6; font-family:'Inter',sans-serif; background-image:radial-gradient(ellipse 55% 45% at 85% 8%, rgba(224,123,57,.12), transparent); }
+  .t5 .nav { border-bottom:1px solid #1d2942; }
+  .t5 .logo { font-family:'Sora',sans-serif; color:#fff; } .t5 .logo b { color:#e07b39; }
+  .t5 .links { color:#93a1bd; }
+  .t5 .kicker { color:#e07b39; }
+  .t5 h3.big { font-family:'Sora',sans-serif; font-weight:700; color:#fff; }
+  .t5 h3.big em { font-style:normal; color:#f0a35e; }
+  .t5 .lead { color:#93a1bd; }
+  .t5 .btn-a { background:linear-gradient(90deg,#e07b39,#c95f2a); color:#fff; border-radius:10px; }
+  .t5 .btn-b { background:transparent; color:#e8edf6; border:1px solid #31405f; border-radius:10px; }
+  .t5 .chip { background:#16213a; border:1px solid #26334f; color:#b9c4d9; border-radius:8px; }
+  .t5 .kit { background:#16213a; border:1px solid #26334f; border-radius:14px; }
+  .t5 .k-name { color:#e07b39; } .t5 .kit h4 { font-family:'Sora',sans-serif; color:#fff; }
+  .t5 .k-price { color:#f0a35e; } .t5 .k-note, .t5 .kit ul { color:#93a1bd; }
+  .t5 .kit .cta { background:#22304e; color:#f0a35e; border:1px solid #34486e; border-radius:10px; }
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>Alternativas de diseño — web <span>SAMADOT</span></h1>
+  <p>Cinco temas completos (paleta + tipografía) aplicados al mismo contenido real de la página. Cada muestra incluye la portada y una tarjeta de kit. Elige uno y se aplica a toda la web en una sesión — todo el diseño está tokenizado, igual que en el dashboard. También se pueden mezclar (ej: paleta de uno + tipografía de otro).</p>
+</div>
+
+<!-- ================= 1 FUTURISTA ================= -->
+<div class="theme-wrap t1">
+  <div class="theme-head">
+    <span class="num">OPCIÓN 1 · FUTURISTA</span><h2>«Neón» — tecnología de punta</h2>
+    <span class="why">Grilla de circuito de fondo, cian eléctrico con brillo neón y titulares técnicos en mayúsculas. Transmite innovación y vanguardia: "esto es el futuro". Riesgo: puede intimidar al cliente menos tecnológico.</span>
+  </div>
+  <div class="pv">
+    <div class="nav"><span class="logo">SAMA<b>DOT</b></span><span class="links"><span>Kits</span><span>Dashboard</span><span>Contacto</span></span></div>
+    <div class="hero">
+      <div class="kicker">Domótica residencial · Región del Maule</div>
+      <h3 class="big">Tu casa inteligente, <em>con control local</em> y sin mensualidades</h3>
+      <p class="lead">Instalamos kits de domótica con el cerebro dentro de tu hogar: tus luces y automatizaciones siguen funcionando aunque se caiga internet.</p>
+      <div class="ctas"><span class="btn btn-a">💬 Cotiza por WhatsApp</span><span class="btn btn-b">Ver los kits</span></div>
+      <div class="chips"><span class="chip">✓ Sin obras ni cableado</span><span class="chip">✓ Sin suscripciones</span><span class="chip">✓ Garantía 6 meses</span></div>
+    </div>
+    <div class="cards">
+      <div class="kit">
+        <div class="k-name">Kit Básico</div><h4>Iluminación Inteligente</h4>
+        <div class="k-price">A cotizar</div><div class="k-note">según disponibilidad · instalación incluida</div>
+        <ul><li>· Hub central Zigbee + app gratuita</li><li>· 2 interruptores inteligentes</li><li>· 1 enchufe con monitoreo</li></ul>
+        <span class="cta">Cotizar este kit</span>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Titulares:</b> Chakra Petch</span><span><b>Texto:</b> Space Grotesk</span>
+    <span class="sw"><i style="background:#05060b"></i>#05060B fondo</span>
+    <span class="sw"><i style="background:#22d3ee"></i>#22D3EE cian</span>
+    <span class="sw"><i style="background:#0a121d"></i>#0A121D tarjeta</span>
+    <span class="sw"><i style="background:#8aa0b8"></i>#8AA0B8 texto suave</span>
+  </div>
+</div>
+
+<!-- ================= 2 SOBRIA ================= -->
+<div class="theme-wrap t2">
+  <div class="theme-head">
+    <span class="num">OPCIÓN 2 · SOBRIA</span><h2>«Ejecutiva» — seriedad y confianza</h2>
+    <span class="why">Fondo blanco, serifa clásica en los titulares, verde bosque profundo y cero adornos. Parece empresa establecida hace años: ideal si el objetivo es que quien cotiza sienta respaldo y formalidad. La más "imprimible" para acompañar cotizaciones.</span>
+  </div>
+  <div class="pv">
+    <div class="nav"><span class="logo">SAMA<b>DOT</b></span><span class="links"><span>Kits</span><span>Dashboard</span><span>Contacto</span></span></div>
+    <div class="hero">
+      <div class="kicker">Domótica residencial · Región del Maule</div>
+      <h3 class="big">Tu casa inteligente, <em>con control local</em> y sin mensualidades</h3>
+      <p class="lead">Instalamos kits de domótica con el cerebro dentro de tu hogar: tus luces y automatizaciones siguen funcionando aunque se caiga internet.</p>
+      <div class="ctas"><span class="btn btn-a">Cotiza por WhatsApp</span><span class="btn btn-b">Ver los kits</span></div>
+      <div class="chips"><span class="chip">✓ Sin obras ni cableado</span><span class="chip">✓ Sin suscripciones</span><span class="chip">✓ Garantía 6 meses</span></div>
+    </div>
+    <div class="cards">
+      <div class="kit">
+        <div class="k-name">Kit Básico</div><h4>Iluminación Inteligente</h4>
+        <div class="k-price">A cotizar</div><div class="k-note">según disponibilidad · instalación incluida</div>
+        <ul><li>· Hub central Zigbee + app gratuita</li><li>· 2 interruptores inteligentes</li><li>· 1 enchufe con monitoreo</li></ul>
+        <span class="cta">Cotizar este kit</span>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Titulares:</b> Source Serif 4</span><span><b>Texto:</b> Inter</span>
+    <span class="sw"><i style="background:#fcfcfb"></i>#FCFCFB fondo</span>
+    <span class="sw"><i style="background:#14532d"></i>#14532D verde bosque</span>
+    <span class="sw"><i style="background:#14211a"></i>#14211A tinta</span>
+    <span class="sw"><i style="background:#5f6b76"></i>#5F6B76 texto suave</span>
+  </div>
+</div>
+
+<!-- ================= 3 HOGAREÑA ================= -->
+<div class="theme-wrap t3">
+  <div class="theme-head">
+    <span class="num">OPCIÓN 3 · HOGAREÑA</span><h2>«Cálida» — la casa primero, la tecnología después</h2>
+    <span class="why">Crema, terracota y verde salvia, bordes muy redondeados y serifa amable. Habla de hogar, familia y calidez — la tecnología se siente simple y acogedora, no fría. Ideal si tu cliente típico es una familia que le teme a "lo tecnológico".</span>
+  </div>
+  <div class="pv">
+    <div class="nav"><span class="logo">SAMA<b>DOT</b></span><span class="links"><span>Kits</span><span>Dashboard</span><span>Contacto</span></span></div>
+    <div class="hero">
+      <div class="kicker">Domótica residencial · Región del Maule</div>
+      <h3 class="big">Tu casa inteligente, <em>con control local</em> y sin mensualidades</h3>
+      <p class="lead">Instalamos kits de domótica con el cerebro dentro de tu hogar: tus luces y automatizaciones siguen funcionando aunque se caiga internet.</p>
+      <div class="ctas"><span class="btn btn-a">💬 Cotiza por WhatsApp</span><span class="btn btn-b">Ver los kits</span></div>
+      <div class="chips"><span class="chip">✓ Sin obras ni cableado</span><span class="chip">✓ Sin suscripciones</span><span class="chip">✓ Garantía 6 meses</span></div>
+    </div>
+    <div class="cards">
+      <div class="kit">
+        <div class="k-name">Kit Básico</div><h4>Iluminación Inteligente</h4>
+        <div class="k-price">A cotizar</div><div class="k-note">según disponibilidad · instalación incluida</div>
+        <ul><li>· Hub central Zigbee + app gratuita</li><li>· 2 interruptores inteligentes</li><li>· 1 enchufe con monitoreo</li></ul>
+        <span class="cta">Cotizar este kit</span>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Titulares:</b> Lora</span><span><b>Texto:</b> Nunito</span>
+    <span class="sw"><i style="background:#faf5ed"></i>#FAF5ED fondo</span>
+    <span class="sw"><i style="background:#c2683f"></i>#C2683F terracota</span>
+    <span class="sw"><i style="background:#7d9b76"></i>#7D9B76 salvia</span>
+    <span class="sw"><i style="background:#4a3527"></i>#4A3527 tinta café</span>
+  </div>
+</div>
+
+<!-- ================= 4 AMOLED MARCA ================= -->
+<div class="theme-wrap t4">
+  <div class="theme-head">
+    <span class="num">OPCIÓN 4 · MI ELECCIÓN A</span><h2>«AMOLED Samadot» — la web se ve como el producto</h2>
+    <span class="why">Exactamente la paleta de tu Dashboard: negro puro, verde menta y ámbar. El argumento comercial es potente: el cliente ve la web, cotiza, y cuando recibe su dashboard instalado TODO se ve de la misma familia. Coherencia total de marca, y combina perfecto con el collar del logo de Otto.</span>
+  </div>
+  <div class="pv">
+    <div class="nav"><span class="logo">SAMA<b>DOT</b></span><span class="links"><span>Kits</span><span>Dashboard</span><span>Contacto</span></span></div>
+    <div class="hero">
+      <div class="kicker">Domótica residencial · Región del Maule</div>
+      <h3 class="big">Tu casa inteligente, <em>con control local</em> y sin mensualidades</h3>
+      <p class="lead">Instalamos kits de domótica con el cerebro dentro de tu hogar: tus luces y automatizaciones siguen funcionando aunque se caiga internet.</p>
+      <div class="ctas"><span class="btn btn-a">💬 Cotiza por WhatsApp</span><span class="btn btn-b">Ver los kits</span></div>
+      <div class="chips"><span class="chip">✓ Sin obras ni cableado</span><span class="chip">✓ Sin suscripciones</span><span class="chip">✓ Garantía 6 meses</span></div>
+    </div>
+    <div class="cards">
+      <div class="kit">
+        <div class="k-name">Kit Básico</div><h4>Iluminación Inteligente</h4>
+        <div class="k-price">A cotizar</div><div class="k-note">según disponibilidad · instalación incluida</div>
+        <ul><li>· Hub central Zigbee + app gratuita</li><li>· 2 interruptores inteligentes</li><li>· 1 enchufe con monitoreo</li></ul>
+        <span class="cta">Cotizar este kit</span>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Titulares y texto:</b> Manrope</span>
+    <span class="sw"><i style="background:#000"></i>#000000 fondo</span>
+    <span class="sw"><i style="background:#31c48d"></i>#31C48D verde menta</span>
+    <span class="sw"><i style="background:#ffd166"></i>#FFD166 ámbar</span>
+    <span class="sw"><i style="background:#0d0d0f"></i>#0D0D0F tarjeta</span>
+  </div>
+</div>
+
+<!-- ================= 5 COBRE ================= -->
+<div class="theme-wrap t5">
+  <div class="theme-head">
+    <span class="num">OPCIÓN 5 · MI ELECCIÓN B</span><h2>«Cobre del Maule» — moderna y con identidad chilena</h2>
+    <span class="why">Azul noche profundo con acento cobre — el metal de Chile — y tipografía geométrica contemporánea. Punto medio entre la futurista y la sobria: se ve tecnológica y premium sin neones, y cálida sin perder seriedad. Destaca mucho en el celular.</span>
+  </div>
+  <div class="pv">
+    <div class="nav"><span class="logo">SAMA<b>DOT</b></span><span class="links"><span>Kits</span><span>Dashboard</span><span>Contacto</span></span></div>
+    <div class="hero">
+      <div class="kicker">Domótica residencial · Región del Maule</div>
+      <h3 class="big">Tu casa inteligente, <em>con control local</em> y sin mensualidades</h3>
+      <p class="lead">Instalamos kits de domótica con el cerebro dentro de tu hogar: tus luces y automatizaciones siguen funcionando aunque se caiga internet.</p>
+      <div class="ctas"><span class="btn btn-a">💬 Cotiza por WhatsApp</span><span class="btn btn-b">Ver los kits</span></div>
+      <div class="chips"><span class="chip">✓ Sin obras ni cableado</span><span class="chip">✓ Sin suscripciones</span><span class="chip">✓ Garantía 6 meses</span></div>
+    </div>
+    <div class="cards">
+      <div class="kit">
+        <div class="k-name">Kit Básico</div><h4>Iluminación Inteligente</h4>
+        <div class="k-price">A cotizar</div><div class="k-note">según disponibilidad · instalación incluida</div>
+        <ul><li>· Hub central Zigbee + app gratuita</li><li>· 2 interruptores inteligentes</li><li>· 1 enchufe con monitoreo</li></ul>
+        <span class="cta">Cotizar este kit</span>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Titulares:</b> Sora</span><span><b>Texto:</b> Inter</span>
+    <span class="sw"><i style="background:#0f172a"></i>#0F172A fondo</span>
+    <span class="sw"><i style="background:#e07b39"></i>#E07B39 cobre</span>
+    <span class="sw"><i style="background:#16213a"></i>#16213A tarjeta</span>
+    <span class="sw"><i style="background:#93a1bd"></i>#93A1BD texto suave</span>
+  </div>
+</div>
+
+</body>
+</html>
