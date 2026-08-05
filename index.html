@@ -378,6 +378,23 @@ nav {
 }
 .demo-tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); font-style: normal; }
 
+/* Selector de kit: la maqueta muestra solo lo que trae cada kit */
+.demo-kits { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; }
+.demo-kits button {
+  border-radius: 999px; padding: 7px 15px; font: inherit; font-size: 12.5px; font-weight: 700;
+  cursor: pointer; background: transparent; color: var(--muted);
+  border: 1.5px solid var(--line); transition: .15s;
+}
+.demo-kits button:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
+.demo-kits button.on { background: var(--accent-soft); border-color: var(--accent-soft); color: #2A1608; }
+[data-lvl].lvl-off { display: none !important; }
+/* enlace de cada tarjeta hacia la maqueta */
+.k-see {
+  display: inline-block; font-size: 12.5px; font-weight: 700; color: var(--accent-soft);
+  text-decoration: none; border-bottom: 1px solid transparent; margin-bottom: 14px;
+}
+.k-see:hover { border-bottom-color: var(--accent-soft); }
+
 /* tira de alertas de ejemplo */
 .alerts-strip { margin-top: 54px; }
 .alerts-strip h3 {
@@ -479,7 +496,7 @@ footer b { color: #B9C4D9; }
       <span class="nav-wordmark">SAMA<span>DOT</span></span>
     </a>
     <div class="nav-links">
-      <a href="#instalacion">Instalación</a>
+      <a href="#kits">Kits</a>
       <a href="#dashboard">Dashboard</a>
       <a href="#servicios">Servicios</a>
       <a href="#nosotros">Nosotros</a>
@@ -496,7 +513,7 @@ footer b { color: #B9C4D9; }
       <p class="lead">Instalamos y configuramos domótica con el cerebro <strong>dentro de tu hogar</strong>: tus luces y automatizaciones siguen funcionando aunque se caiga internet, controlas todo desde una app gratuita y no pagas suscripciones.</p>
       <div class="hero-ctas">
         <a class="btn btn-green js-wa" href="#contacto">💬 Cotiza por WhatsApp</a>
-        <a class="btn btn-outline" href="#instalacion">Ver la instalación</a>
+        <a class="btn btn-outline" href="#kits">Ver los kits</a>
       </div>
       <div class="chips">
         <span class="chip"><b>✓</b> Sin obras ni cableado</span>
@@ -557,66 +574,66 @@ footer b { color: #B9C4D9; }
   </div>
 </section>
 
-<section class="kits" id="instalacion">
+<section class="kits" id="kits">
   <div class="wrap">
-    <span class="kicker">Instalación</span>
+    <span class="kicker">Kits</span>
     <h2 class="sec-title">Elige tu punto de partida</h2>
-    <p class="sec-sub">Tres niveles de instalación, configuración y capacitación. <strong>Los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Todos son ampliables: partes chico y creces cuando quieras.</p>
+    <p class="sec-sub">Cada kit incluye instalación, configuración y capacitación. <strong>Los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Cada uno parte del anterior: creces cuando quieras.</p>
     <div class="kit-grid">
 
       <div class="kit">
-        <div class="k-name">Instalación Base</div>
-        <h3>Iluminación Inteligente</h3>
+        <div class="k-name">Kit Básico</div>
+        <h3>Comodidad</h3>
         <div class="k-tag">"Tus luces, bajo control. Sin complicaciones."</div>
         <div class="k-price">A cotizar</div>
         <div class="k-price-note">valor del servicio · los equipos los compras tú</div>
         <ul>
-          <li><span class="d"></span>Hub central local + app gratuita en tu celular (control local y remoto)</li>
-          <li><span class="d"></span>2 interruptores de iluminación inteligentes</li>
-          <li><span class="d"></span>1 enchufe inteligente con monitoreo de consumo</li>
-          <li><span class="d"></span>1 botón de escena inalámbrico</li>
-          <li><span class="d"></span>App configurada + capacitación en tu casa</li>
+          <li><span class="d"></span>Hub central local + app en tu celular</li>
+          <li><span class="d"></span>Interruptores de iluminación inteligentes</li>
+          <li><span class="d"></span>Control por sectores, escenas y horarios</li>
+          <li><span class="d"></span>Instalación, configuración y capacitación</li>
         </ul>
-        <a class="btn btn-dark js-wa" href="#contacto" data-kit="Instalación Base">Cotizar esta instalación</a>
+        <a class="k-see" href="#dashboard" data-kitlvl="1">Ver cómo se ve en el panel →</a>
+        <a class="btn btn-dark js-wa" href="#contacto" data-kit="Kit Básico">Cotizar este kit</a>
       </div>
 
       <div class="kit featured">
         <div class="ribbon">El más elegido</div>
-        <div class="k-name">Instalación Hogar</div>
-        <h3>Eficiencia Energética</h3>
-        <div class="k-tag">"Ahorra energía y toma el control de tu hogar."</div>
+        <div class="k-name">Kit Medio</div>
+        <h3>Tranquilidad</h3>
+        <div class="k-tag">"Sabes lo que pasa en tu casa, estés donde estés."</div>
         <div class="k-price">A cotizar</div>
         <div class="k-price-note">valor del servicio · los equipos los compras tú</div>
         <ul>
-          <li><span class="d"></span>Panel de control inteligente (hub local con pantalla)</li>
-          <li><span class="d"></span>3 interruptores de iluminación inteligentes</li>
-          <li><span class="d"></span>1 enchufe inteligente con monitoreo de consumo</li>
-          <li><span class="d"></span>2 sensores de temperatura y humedad</li>
-          <li><span class="d"></span>1 sensor de presencia (luz automática)</li>
-          <li><span class="d"></span>App configurada + capacitación en tu casa</li>
+          <li><span class="d"></span><strong>Todo lo del Kit Básico</strong></li>
+          <li><span class="d"></span>Sensores de movimiento y de apertura de puertas</li>
+          <li><span class="d"></span>Notificación a tu teléfono cuando hay movimiento</li>
+          <li><span class="d"></span>Modos En casa, Noche y Salí</li>
         </ul>
-        <a class="btn btn-green js-wa" href="#contacto" data-kit="Instalación Hogar">Cotizar esta instalación</a>
+        <a class="k-see" href="#dashboard" data-kitlvl="2">Ver cómo se ve en el panel →</a>
+        <a class="btn btn-green js-wa" href="#contacto" data-kit="Kit Medio">Cotizar este kit</a>
       </div>
 
       <div class="kit">
-        <div class="k-name">⭐ Instalación Integral</div>
-        <h3>Seguridad Integral</h3>
-        <div class="k-tag">"Tranquilidad total. Tu hogar, siempre protegido."</div>
+        <div class="k-name">⭐ Kit Avanzado</div>
+        <h3>Control total</h3>
+        <div class="k-tag">"Toda tu casa en una sola pantalla."</div>
         <div class="k-price">A cotizar</div>
         <div class="k-price-note">valor del servicio · los equipos los compras tú</div>
         <ul>
-          <li><span class="d"></span>Panel de control inteligente (hub local con pantalla)</li>
-          <li><span class="d"></span>Control de 6 circuitos de iluminación</li>
-          <li><span class="d"></span>2 cámaras interiores HD integradas al sistema</li>
-          <li><span class="d"></span>1 sensor de presencia + 1 sensor puerta/ventana</li>
-          <li><span class="d"></span>2 sensores de temperatura y humedad</li>
-          <li><span class="d"></span>App configurada + capacitación + visita de revisión al mes</li>
+          <li><span class="d"></span><strong>Todo lo del Kit Medio</strong></li>
+          <li><span class="d"></span>Cámaras en la misma pantalla: ves el video sin abrir otra app ni pasar por la nube</li>
+          <li><span class="d"></span>Aviso al teléfono si se corta la luz en la casa</li>
+          <li><span class="d"></span>Sensor de fuga de agua bajo lavaplatos o calefont</li>
+          <li><span class="d"></span>Historial de temperatura y humedad de cada pieza</li>
+          <li><span class="d"></span>Usuario y clave para cada miembro de la familia</li>
         </ul>
-        <a class="btn btn-dark js-wa" href="#contacto" data-kit="Instalación Integral">Cotizar esta instalación</a>
+        <a class="k-see" href="#dashboard" data-kitlvl="3">Ver cómo se ve en el panel →</a>
+        <a class="btn btn-dark js-wa" href="#contacto" data-kit="Kit Avanzado">Cotizar este kit</a>
       </div>
 
     </div>
-    <p class="kits-note">Compatible con los asistentes de voz más usados (el control por voz requiere internet). ¿Ya tienes dispositivos inteligentes? Mira el <a href="#servicios" style="color:var(--accent-soft);font-weight:700;">estudio de compatibilidad</a>.</p>
+    <p class="kits-note"><strong style="color:var(--ink)">Todo funciona de forma local, dentro de tu casa.</strong> Lo único que necesita internet son las notificaciones a tu teléfono y el control por voz. ¿Ya tienes dispositivos inteligentes? Mira el <a href="#servicios" style="color:var(--accent-soft);font-weight:700;">estudio de compatibilidad</a>.</p>
   </div>
 </section>
 
@@ -638,6 +655,11 @@ footer b { color: #B9C4D9; }
     </div>
     <div class="demo">
       <span class="demo-tag"><i></i> Demostración · datos de ejemplo</span>
+      <div class="demo-kits" id="dKits" role="group" aria-label="Ver el panel según el kit">
+        <button data-kitlvl="1">Kit Básico</button>
+        <button data-kitlvl="2">Kit Medio</button>
+        <button class="on" data-kitlvl="3">Kit Avanzado</button>
+      </div>
       <div class="phone-wrap">
         <div class="phone">
           <div class="screen">
@@ -649,7 +671,7 @@ footer b { color: #B9C4D9; }
 
             <div class="scr-tabs">
               <div class="scr-tab on">Casa</div>
-              <div class="scr-tab">Alertas<span class="badge" id="dBadge">1</span></div>
+              <div class="scr-tab" data-lvl="2">Alertas<span class="badge" id="dBadge">1</span></div>
             </div>
 
             <div class="d-card">
@@ -694,7 +716,7 @@ footer b { color: #B9C4D9; }
               </div>
             </div>
 
-            <div class="d-card">
+            <div class="d-card" data-lvl="3">
               <div class="dc-lbl">Cámaras</div>
               <div class="d-cams">
                 <button class="d-cam js-cam" data-cam="Acceso">
@@ -716,7 +738,7 @@ footer b { color: #B9C4D9; }
               </div>
             </div>
 
-            <div class="d-card">
+            <div class="d-card" data-lvl="3">
               <div class="dc-lbl">Temperatura</div>
               <div class="d-sensors">
                 <div class="d-sensor">
@@ -731,17 +753,17 @@ footer b { color: #B9C4D9; }
             </div>
 
             <div class="d-card d-status">
-              <div class="d-st">
+              <div class="d-st" data-lvl="2">
                 <span class="dot" id="dMotDot"></span> <b>Movimiento</b>
                 <span class="val" id="dMot">Sin actividad</span>
               </div>
-              <div class="d-st">
+              <div class="d-st" data-lvl="3">
                 <span class="dot"></span> <b>Agua</b>
                 <span class="val">Sin fugas</span>
               </div>
               <div class="d-st">
                 <span class="dot"></span> <b>Equipos</b>
-                <span class="val">12 en línea</span>
+                <span class="val" id="dEquipos">14 en línea</span>
               </div>
             </div>
 
@@ -790,7 +812,7 @@ footer b { color: #B9C4D9; }
         </div>
       </div>
 
-      <div class="demo-modes" id="dModes">
+      <div class="demo-modes" id="dModes" data-lvl="2">
         <button class="on" data-mode="hogar">🏠 En casa</button>
         <button data-mode="noche">🌙 Noche</button>
         <button data-mode="fuera">🚗 Salí</button>
@@ -838,14 +860,14 @@ footer b { color: #B9C4D9; }
 <section id="servicios">
   <div class="wrap">
     <span class="kicker">Servicios adicionales</span>
-    <h2 class="sec-title">Más allá de la instalación</h2>
+    <h2 class="sec-title">Más allá de los kits</h2>
     <p class="sec-sub">Soluciones para casas que ya tienen tecnología, o que necesitan una base de red sólida antes de partir.</p>
     <div class="svc-grid">
       <div class="svc">
         <div class="ico">🔍</div>
         <h3>Estudio de compatibilidad</h3>
         <p>¿Ya compraste dispositivos inteligentes? Visitamos tu casa, evaluamos qué se puede integrar a un solo sistema y te entregamos un informe claro.</p>
-        <div class="price">A cotizar · descontable de la instalación</div>
+        <div class="price">A cotizar · descontable del kit</div>
       </div>
       <div class="svc">
         <div class="ico">📶</div>
@@ -875,7 +897,7 @@ footer b { color: #B9C4D9; }
       </div>
       <div class="step">
         <h3>Propuesta clara</h3>
-        <p>Te entregamos una cotización formal con el valor del servicio y la lista de equipos que debes comprar. Precio cerrado y sin letra chica.</p>
+        <p>Te entregamos una cotización formal con el kit recomendado, el valor del servicio y la lista de equipos que debes comprar. Precio cerrado y sin letra chica.</p>
       </div>
       <div class="step">
         <h3>Instalación en un día</h3>
@@ -985,6 +1007,7 @@ const WHATSAPP = "56963365302";
   const mot    = document.getElementById('dMot');
   const calmo  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let modo = 'hogar', notifTimer = null, demoTimer = null;
+  let nivel = 3; // 1 Básico · 2 Medio · 3 Avanzado — qué dispositivos muestra la maqueta
 
   const setRoom = (el, on) => {
     el.classList.toggle('on', on);
@@ -1034,8 +1057,9 @@ const WHATSAPP = "56963365302";
     document.getElementById('dOut').textContent = Math.round(11 + (Math.random() * 2 - 1));
   }, 4200);
 
-  // Aviso de movimiento
+  // Aviso de movimiento — el Kit Básico no trae sensores, así que no avisa
   function alerta(titulo, cuerpo, icono) {
+    if (nivel < 2) return;
     document.getElementById('dNotifT').textContent = titulo;
     document.getElementById('dNotifB').textContent = cuerpo;
     document.getElementById('dNotifIco').textContent = icono;
@@ -1051,6 +1075,48 @@ const WHATSAPP = "56963365302";
       mot.textContent = 'Sin actividad';
     }, 5200);
   }
+
+  // Selector de kit: la maqueta muestra solo los dispositivos que trae cada uno
+  const HINTS = {
+    1: 'Solo iluminación: tocas un sector y la luz responde, sin depender de internet.',
+    2: 'Con sensores, la casa te avisa al teléfono apenas detecta movimiento.',
+    3: 'Toca una cámara para verla, o cambia el modo para ver cómo avisa cuando no estás.'
+  };
+  const EQUIPOS = { 1: '5 en línea', 2: '9 en línea', 3: '14 en línea' };
+
+  function setKit(n) {
+    nivel = n;
+    document.querySelectorAll('#dashboard [data-lvl]').forEach(el => {
+      el.classList.toggle('lvl-off', parseInt(el.dataset.lvl, 10) > n);
+    });
+    document.querySelectorAll('#dKits button').forEach(b => {
+      b.classList.toggle('on', parseInt(b.dataset.kitlvl, 10) === n);
+    });
+    document.getElementById('dEquipos').textContent = EQUIPOS[n];
+    // se limpia todo lo que un kit menor no podria estar mostrando
+    cerrarCam();
+    clearTimeout(demoTimer); clearTimeout(notifTimer);
+    notif.classList.remove('show');
+    badge.classList.remove('show');
+    motDot.className = 'dot';
+    mot.textContent = 'Sin actividad';
+    if (n === 1) { // sin sensores no hay modos: vuelve a "En casa"
+      document.querySelectorAll('#dModes button')
+        .forEach(x => x.classList.toggle('on', x.dataset.mode === 'hogar'));
+      modo = 'hogar';
+    }
+    hint.textContent = HINTS[n];
+  }
+
+  document.getElementById('dKits').addEventListener('click', e => {
+    const b = e.target.closest('button');
+    if (b) setKit(parseInt(b.dataset.kitlvl, 10));
+  });
+
+  // enlaces "ver cómo se ve" de cada tarjeta de kit
+  document.querySelectorAll('.k-see').forEach(a => {
+    a.addEventListener('click', () => setKit(parseInt(a.dataset.kitlvl, 10)));
+  });
 
   // Cambiar de modo
   document.getElementById('dModes').addEventListener('click', e => {
