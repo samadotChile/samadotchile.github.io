@@ -553,8 +553,11 @@ nav {
 @media (prefers-reduced-motion: reduce) { .cam-live i { animation: none; } }
 
 /* notificación que entra sobre el teléfono */
+/* top calzado para caer justo bajo las pestañas: cabecera (16) + fila de modos
+   (26) + pestañas (27) + los tres gap de 8. Si se agrega otra fila arriba, hay
+   que subir este número o la notificación tapa la navegación. */
 .notif {
-  position: absolute; left: 8px; right: 8px; top: 74px; z-index: 6;
+  position: absolute; left: 8px; right: 8px; top: 108px; z-index: 6;
   background: rgba(28,39,64,.97); border: 1px solid rgba(232,137,74,.5);
   border-radius: 13px; padding: 9px 11px; display: flex; gap: 9px; align-items: flex-start;
   box-shadow: 0 14px 34px rgba(0,0,0,.6); backdrop-filter: blur(4px);
@@ -570,15 +573,30 @@ nav {
 .notif .n-b { font-size: 10.5px; color: var(--d-ink2); margin-top: 1px; }
 .notif .n-w { font-size: 9px; color: var(--d-ink3); margin-top: 3px; letter-spacing: .3px; }
 
-/* controles bajo el teléfono */
-.demo-modes { display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; }
-.demo-modes button {
-  border-radius: 999px; padding: 8px 17px; font: inherit; font-size: 13px; font-weight: 700;
-  cursor: pointer; background: transparent; color: var(--muted);
-  border: 1.5px solid var(--line); transition: .15s;
+/* Modos de alerta, DENTRO de la pantalla: en el producto real viven en la
+   cabecera de la app (btnHogar / btnNoche / btnAlerta), no fuera del teléfono.
+   Mismos íconos y misma forma que el dashboard, para que la maqueta no muestre
+   una interfaz que no existe. */
+.scr-modes { display: flex; align-items: center; gap: 5px; padding: 0 3px; }
+.scr-modes .sm-lbl {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
+  color: var(--d-ink3); margin-right: auto;
 }
-.demo-modes button:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
-.demo-modes button.on { background: var(--accent); border-color: var(--accent); color: #2A1608; }
+.scr-modes button {
+  width: 26px; height: 26px; flex: none; border-radius: 50%; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--d-surface); border: 1px solid transparent; color: var(--d-ink3);
+  cursor: pointer; transition: .15s;
+}
+.scr-modes button svg { width: 14px; height: 14px; }
+.scr-modes button:hover { color: var(--d-ink); border-color: var(--d-ink3); }
+.scr-modes button:active { transform: scale(.92); }
+.scr-modes button.on {
+  color: var(--d-accent); border-color: rgba(232,137,74,.55);
+  background: rgba(232,137,74,.13);
+}
+
+/* controles bajo el teléfono */
 .demo-hint { font-size: 12.5px; color: #7E8CA6; text-align: center; max-width: 300px; line-height: 1.45; }
 .demo-tag {
   display: inline-flex; align-items: center; gap: 7px; font-size: 11px; font-weight: 700;
@@ -1081,7 +1099,6 @@ footer b { color: #B9C4D9; }
         <ul>
           <li><span class="d"></span><strong>Todo lo del Kit Medio</strong></li>
           <li><span class="d"></span>Cámaras en la misma pantalla: ves el video sin abrir otra app ni pasar por la nube</li>
-          <li><span class="d"></span>Aviso al teléfono si se corta la luz en la casa</li>
           <li><span class="d"></span>Sensor de fuga de agua bajo lavaplatos o calefont</li>
           <li><span class="d"></span>Historial de temperatura y humedad de cada pieza</li>
           <li><span class="d"></span>Usuario y clave para cada miembro de la familia</li>
@@ -1125,6 +1142,20 @@ footer b { color: #B9C4D9; }
             <div class="scr-top">
               <div class="scr-brand">SAMA<span>DOT</span></div>
               <div class="scr-clock" id="dClock">21:40</div>
+            </div>
+
+            <!-- Mismos íconos que el dashboard real: casa, luna y escudo -->
+            <div class="scr-modes" id="dModes" data-lvl="2" role="group" aria-label="Modo de alertas">
+              <span class="sm-lbl">Alertas</span>
+              <button class="on" data-mode="hogar" title="En casa" aria-label="Modo en casa" aria-pressed="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+              </button>
+              <button data-mode="noche" title="Noche" aria-label="Modo noche" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+              </button>
+              <button data-mode="fuera" title="Salí" aria-label="Modo salí de casa" aria-pressed="false">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5.2c0 4.8-3.3 7.9-7 9.8-3.7-1.9-7-5-7-9.8V6z"/></svg>
+              </button>
             </div>
 
             <div class="scr-tabs">
@@ -1270,12 +1301,7 @@ footer b { color: #B9C4D9; }
         </div>
       </div>
 
-      <div class="demo-modes" id="dModes" data-lvl="2">
-        <button class="on" data-mode="hogar">🏠 En casa</button>
-        <button data-mode="noche">🌙 Noche</button>
-        <button data-mode="fuera">🚗 Salí</button>
-      </div>
-      <p class="demo-hint" id="dHint">Toca un sector para prender la luz, o cambia el modo para ver cómo avisa cuando no estás.</p>
+      <p class="demo-hint" id="dHint">Toca un sector para prender la luz, o cambia el modo de alertas (arriba en la pantalla) para ver cómo avisa cuando no estás.</p>
     </div>
   </div>
 
@@ -1295,20 +1321,6 @@ footer b { color: #B9C4D9; }
         <div>
           <div class="a-t">Fuga de agua</div>
           <div class="a-b">"Agua detectada bajo el lavaplatos". Avisa siempre, en cualquier modo — no se puede silenciar.</div>
-        </div>
-      </div>
-      <div class="alert-card c">
-        <div class="a-ico">🔌</div>
-        <div>
-          <div class="a-t">Corte de luz</div>
-          <div class="a-b">"Se cortó la energía en la propiedad". Clave si tienes refrigeración o la casa queda sola.</div>
-        </div>
-      </div>
-      <div class="alert-card g">
-        <div class="a-ico">🌡️</div>
-        <div>
-          <div class="a-t">Temperatura fuera de rango</div>
-          <div class="a-b">"La bodega bajó de 4°C". También puede encender la calefacción sola al llegar al límite.</div>
         </div>
       </div>
     </div>
@@ -1441,7 +1453,7 @@ footer b { color: #B9C4D9; }
 
       <details>
         <summary>¿Y si se corta la luz?</summary>
-        <div class="faq-a">Cuando vuelve la energía, el sistema se reconecta solo: no hay que reconfigurar nada. Si tienes el <strong>Kit Avanzado</strong>, además te llega un aviso al teléfono en el momento del corte — útil si tienes refrigeración o si la casa queda sola.</div>
+        <div class="faq-a">Mientras no hay luz, los equipos no funcionan — eso le pasa a cualquier instalación. Lo importante es lo que ocurre después: cuando vuelve la energía, <strong>el sistema arranca solo y no pierde nada</strong>. Tus sectores, horarios, usuarios y toda la configuración quedan guardados dentro del hub, así que no hay que reconfigurar ni volver a emparejar nada.</div>
       </details>
 
       <details>
@@ -1644,8 +1656,8 @@ if (ANALYTICS) {
   // Selector de kit: la maqueta muestra solo los dispositivos que trae cada uno
   const HINTS = {
     1: 'Solo iluminación: tocas un sector y la luz responde, sin depender de internet.',
-    2: 'Con sensores, la casa te avisa al teléfono apenas detecta movimiento.',
-    3: 'Toca una cámara para verla, o cambia el modo para ver cómo avisa cuando no estás.'
+    2: 'Con sensores, la casa te avisa al teléfono apenas detecta movimiento. Cambia el modo de alertas arriba en la pantalla.',
+    3: 'Toca una cámara para verla, o cambia el modo de alertas (arriba en la pantalla) para ver cómo avisa cuando no estás.'
   };
   const EQUIPOS = { 1: '5 en línea', 2: '9 en línea', 3: '14 en línea' };
 
@@ -1666,8 +1678,11 @@ if (ANALYTICS) {
     motDot.className = 'dot';
     mot.textContent = 'Sin actividad';
     if (n === 1) { // sin sensores no hay modos: vuelve a "En casa"
-      document.querySelectorAll('#dModes button')
-        .forEach(x => x.classList.toggle('on', x.dataset.mode === 'hogar'));
+      document.querySelectorAll('#dModes button').forEach(x => {
+        const on = x.dataset.mode === 'hogar';
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
       modo = 'hogar';
     }
     hint.textContent = HINTS[n];
@@ -1688,7 +1703,10 @@ if (ANALYTICS) {
     const b = e.target.closest('button');
     if (!b) return;
     clearTimeout(demoTimer);
-    document.querySelectorAll('#dModes button').forEach(x => x.classList.toggle('on', x === b));
+    document.querySelectorAll('#dModes button').forEach(x => {
+      x.classList.toggle('on', x === b);
+      x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+    });
     modo = b.dataset.mode;
     if (modo === 'fuera') {
       all(false);
