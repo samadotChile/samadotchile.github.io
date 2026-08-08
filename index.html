@@ -190,15 +190,29 @@ nav {
 }
 .f-chap.now .f-t { color: var(--accent-soft); }
 .f-chap:hover .f-t { color: var(--ink); }
-@media (max-width: 620px) { .f-chap .f-t { font-size: 9px; letter-spacing: .3px; } }
-
-.f-ctrls { display: flex; gap: 10px; justify-content: center; align-items: center; margin-top: 20px; flex-wrap: wrap; }
-.f-btn {
-  display: inline-flex; align-items: center; gap: 8px; border-radius: 999px;
-  padding: 9px 20px; font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;
-  background: transparent; color: var(--muted); border: 1.5px solid var(--line); transition: .15s;
+/* min-height reserva el alto de dos líneas: en pantallas angostas «SIN INTERNET»
+   se parte en dos y, sin esto, la fila de etiquetas daba un salto y se metía en
+   lo de abajo. No se usa nowrap a propósito: a 9px la etiqueta más larga no cabe
+   en un quinto de 390px y provocaría scroll horizontal, que es peor. */
+@media (max-width: 620px) {
+  .f-chap .f-t { font-size: 9px; letter-spacing: .3px; min-height: 2.2em; }
 }
-.f-btn:hover { color: var(--accent-soft); border-color: var(--accent-soft); }
+
+/* Control de pausa: 44px de área táctil, dentro del marco y arriba del outro
+   (z-index 4) para que se pueda pausar también en la última escena. */
+.f-pause {
+  position: absolute; top: 12px; right: 12px; z-index: 4;
+  width: 44px; height: 44px; border-radius: 50%; padding: 0; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(11, 17, 32, .62); border: 1px solid rgba(255, 255, 255, .16);
+  color: #C8D2E4; transition: .15s; backdrop-filter: blur(6px);
+}
+.f-pause:hover { color: var(--accent-soft); border-color: var(--accent-soft); background: rgba(11, 17, 32, .82); }
+.f-pause:focus-visible { outline: 2px solid var(--accent-soft); outline-offset: 2px; }
+.f-pause svg { width: 17px; height: 17px; }
+.f-pause .i-play { display: none; margin-left: 2px; }   /* el triángulo se ve descentrado sin esto */
+.f-pause.en-pausa .i-pausa { display: none; }
+.f-pause.en-pausa .i-play { display: block; }
 .f-note { text-align: center; font-size: 12.5px; color: #7E8CA6; margin-top: 14px; }
 
 /* ---- escenografía ---- */
@@ -820,6 +834,21 @@ footer b { color: #B9C4D9; }
     </div>
 
     <div class="film-stage" id="fStage">
+      <!-- Pausa en la esquina, como cualquier reproductor: la afordancia se
+           entiende sola y no compite con los botones cobre de la página, que
+           son los que llevan a cotizar. Antes eran dos pastillas grandes bajo
+           la animación; «Ver de nuevo» se eliminó porque la animación va en
+           bucle y la barra de capítulos ya permite volver a cualquier escena.
+           Se mantiene el botón porque con «menos movimiento» activado la
+           animación NO parte sola: este es el control para verla. -->
+      <button class="f-pause" id="fPlay" aria-label="Pausar la animación">
+        <svg class="i-pausa" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <rect x="7" y="5" width="3.6" height="14" rx="1.2"/><rect x="13.4" y="5" width="3.6" height="14" rx="1.2"/>
+        </svg>
+        <svg class="i-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M9 5.4l9.6 6.6L9 18.6z"/>
+        </svg>
+      </button>
       <svg class="film-svg" viewBox="0 0 640 380" role="img" aria-labelledby="fTitle fDesc">
         <title id="fTitle">Cómo funciona una casa Samadot</title>
         <desc id="fDesc">Animación: anochece, las luces se encienden solas sector por sector, se corta internet y la casa sigue funcionando, y al salir un sensor detecta movimiento y el aviso llega al teléfono.</desc>
@@ -1020,10 +1049,6 @@ footer b { color: #B9C4D9; }
 
     <div class="f-bar" id="fBar" role="group" aria-label="Capítulos"></div>
 
-    <div class="f-ctrls">
-      <button class="f-btn" id="fPlay" aria-label="Pausar la animación">⏸ Pausar</button>
-      <button class="f-btn" id="fReplay">↻ Ver de nuevo</button>
-    </div>
     <p class="f-note">Escena recreada. En tu casa son tus piezas, tus sensores y tus horarios.</p>
   </div>
 </section>
@@ -1870,21 +1895,15 @@ if (ANALYTICS) {
   }
 
   function rotular() {
-    playB.textContent = enPausa ? '▶ Reproducir' : '⏸ Pausar';
+    // El botón es solo ícono: se cambia el que se muestra, no el texto — con
+    // textContent se borraban los dos SVG de adentro.
+    playB.classList.toggle('en-pausa', enPausa);
     playB.setAttribute('aria-label', enPausa ? 'Reproducir la animación' : 'Pausar la animación');
   }
 
   playB.addEventListener('click', () => {
     pausaManual = !enPausa;
     enPausa ? reanudar() : pausar();
-    rotular();
-  });
-
-  document.getElementById('fReplay').addEventListener('click', () => {
-    pausaManual = false;
-    enPausa = false;
-    film.classList.remove('paused');
-    ir(0);
     rotular();
   });
 
