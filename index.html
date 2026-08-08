@@ -656,11 +656,11 @@ nav {
 .alert-card .a-ico { font-size: 19px; line-height: 1; flex: none; margin-top: 1px; }
 .alert-card .a-t { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
 .alert-card .a-b { font-size: 13px; color: var(--muted); line-height: 1.45; }
-/* condición de una alerta que no depende del panel sino de la instalación */
-.alert-card .a-n {
-  display: block; margin-top: 6px; font-size: 12px; line-height: 1.4;
-  color: var(--accent-soft); opacity: .85;
-}
+/* Acá vivía .a-n, la línea en cobre que explicaba la condición de cada alerta
+   (respaldo de batería en el hub, sensor exterior). Se quitó el 08-08 por
+   decisión de Hugo: describía cómo funciona el sistema y eso es información
+   para la competencia. La condición se explica igual en la conversación de
+   venta y en la cotización, donde el que la lee es el cliente y no cualquiera. */
 @media (prefers-reduced-motion: reduce) {
   .pulse { animation: none; }
   .notif { transition: none; }
@@ -1361,15 +1361,13 @@ footer b { color: #B9C4D9; }
         <div>
           <div class="a-t">Corte de luz</div>
           <div class="a-b">"Se cortó la luz — 4 equipos se cayeron a la vez". Distingue un corte de verdad de una ampolleta quemada, y te avisa otra vez cuando la luz vuelve.</div>
-          <span class="a-n">Requiere respaldo de batería en el hub y el router: sin corriente ni internet, ningún sistema puede avisar.</span>
         </div>
       </div>
       <div class="alert-card g">
         <div class="a-ico">🪟</div>
         <div>
           <div class="a-t">Riesgo de condensación</div>
-          <div class="a-b">"Riesgo de condensación — Living". Cruza la humedad de adentro con el frío de afuera y avisa <b>antes</b> de que aparezca el hongo, no cuando ya está en la pared.</div>
-          <span class="a-n">Necesita un sensor de temperatura exterior, además de los de las piezas.</span>
+          <div class="a-b">"Riesgo de condensación — Living". Avisa <b>antes</b> de que aparezca el hongo, no cuando ya está en la pared.</div>
         </div>
       </div>
       <div class="alert-card w">
