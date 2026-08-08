@@ -627,7 +627,10 @@ nav {
   font-family: 'Sora',sans-serif; font-size: 19px; font-weight: 800; margin-bottom: 6px;
 }
 .alerts-strip .as-sub { color: var(--muted); font-size: 14.5px; margin-bottom: 22px; }
-.alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+/* 300px de mínimo, no 240: con seis tarjetas, 240 daba una fila de cuatro y otra
+   de dos, y las cortas quedaban estiradas al alto de la más larga. Con 300 son
+   dos filas de tres. */
+.alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
 .alert-card {
   background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.12);
   border-left-width: 3px; border-radius: 13px; padding: 14px 16px;
@@ -639,6 +642,11 @@ nav {
 .alert-card .a-ico { font-size: 19px; line-height: 1; flex: none; margin-top: 1px; }
 .alert-card .a-t { font-size: 14px; font-weight: 800; margin-bottom: 2px; }
 .alert-card .a-b { font-size: 13px; color: var(--muted); line-height: 1.45; }
+/* condición de una alerta que no depende del panel sino de la instalación */
+.alert-card .a-n {
+  display: block; margin-top: 6px; font-size: 12px; line-height: 1.4;
+  color: var(--accent-soft); opacity: .85;
+}
 @media (prefers-reduced-motion: reduce) {
   .pulse { animation: none; }
   .notif { transition: none; }
@@ -1323,6 +1331,36 @@ footer b { color: #B9C4D9; }
           <div class="a-b">"Agua detectada bajo el lavaplatos". Avisa siempre, en cualquier modo — no se puede silenciar.</div>
         </div>
       </div>
+      <div class="alert-card w">
+        <div class="a-ico">🔌</div>
+        <div>
+          <div class="a-t">Corte de luz</div>
+          <div class="a-b">"Se cortó la luz — 4 equipos se cayeron a la vez". Distingue un corte de verdad de una ampolleta quemada, y te avisa otra vez cuando la luz vuelve.</div>
+          <span class="a-n">Requiere respaldo de batería en el hub y el router: sin corriente ni internet, ningún sistema puede avisar.</span>
+        </div>
+      </div>
+      <div class="alert-card g">
+        <div class="a-ico">🪟</div>
+        <div>
+          <div class="a-t">Riesgo de condensación</div>
+          <div class="a-b">"Riesgo de condensación — Living". Cruza la humedad de adentro con el frío de afuera y avisa <b>antes</b> de que aparezca el hongo, no cuando ya está en la pared.</div>
+          <span class="a-n">Necesita un sensor de temperatura exterior, además de los de las piezas.</span>
+        </div>
+      </div>
+      <div class="alert-card w">
+        <div class="a-ico">🌡️</div>
+        <div>
+          <div class="a-t">Temperatura o humedad fuera de rango</div>
+          <div class="a-b">"Fuera de rango — Pieza del bebé". Los límites los pones tú, pieza por pieza, y eliges cuáles avisan.</div>
+        </div>
+      </div>
+      <div class="alert-card g">
+        <div class="a-ico">🔋</div>
+        <div>
+          <div class="a-t">Baterías por cambiar</div>
+          <div class="a-b">Un resumen al día con los sensores que van quedando bajos y los que dejaron de responder. No un aviso por cada uno, y nunca de madrugada.</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1453,7 +1491,7 @@ footer b { color: #B9C4D9; }
 
       <details>
         <summary>¿Y si se corta la luz?</summary>
-        <div class="faq-a">Mientras no hay luz, los equipos no funcionan — eso le pasa a cualquier instalación. Lo importante es lo que ocurre después: cuando vuelve la energía, <strong>el sistema arranca solo y no pierde nada</strong>. Tus sectores, horarios, usuarios y toda la configuración quedan guardados dentro del hub, así que no hay que reconfigurar ni volver a emparejar nada.</div>
+        <div class="faq-a">Mientras no hay luz, los equipos no funcionan — eso le pasa a cualquier instalación. Lo importante es lo que ocurre después: cuando vuelve la energía, <strong>el sistema arranca solo y no pierde nada</strong>. Tus sectores, horarios, usuarios y toda la configuración quedan guardados dentro del hub, así que no hay que reconfigurar ni volver a emparejar nada.<br><br>Y si además dejas el hub y el router con un respaldo de batería (un UPS de los que se usan para el computador), <strong>el panel te avisa del corte al teléfono</strong> y te avisa de nuevo cuando vuelve la luz. Es opcional y lo decides tú: sin respaldo no hay corriente ni internet, y así ningún sistema puede mandar un aviso.</div>
       </details>
 
       <details>
