@@ -171,7 +171,7 @@ nav {
   display: none; position: fixed; z-index: 60;
   right: 16px; bottom: 16px; width: 56px; height: 56px; border-radius: 50%;
   align-items: center; justify-content: center; text-decoration: none;
-  background: linear-gradient(140deg, #E07B39, #C95F2A); color: var(--cta-ink);
+  background: linear-gradient(140deg, #E07B39, #CE6830); color: var(--cta-ink);
   box-shadow: 0 8px 26px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.12);
   transition: transform .15s;
 }
@@ -195,9 +195,13 @@ nav {
 .btn svg { width: 18px; height: 18px; flex: none; }
 /* .btn-cta se llamaba .btn-green, de una paleta anterior que ya no existe.
    La tinta es --cta-ink y no blanco: sobre el degradado cobre el blanco daba
-   2,97:1 y no pasaba AA. */
-.btn-cta { background: linear-gradient(90deg, #E07B39, #C95F2A); color: var(--cta-ink); box-shadow: 0 4px 18px rgba(224,123,57,.35); }
-.btn-cta:hover { background: linear-gradient(90deg, #E98A4C, #D06A33); }
+   2,97:1 y no pasaba AA.
+   El extremo oscuro era #C95F2A y con la tinta café daba 4,24:1, todavía bajo
+   el 4,5 de AA. #CE6830 es el mínimo que cumple (4,64:1) sin que el degradado
+   cambie a la vista; el claro da 5,80:1. El hover se subió en la misma medida
+   para que siga notándose. Medido, no estimado. */
+.btn-cta { background: linear-gradient(90deg, #E07B39, #CE6830); color: var(--cta-ink); box-shadow: 0 4px 18px rgba(224,123,57,.35); }
+.btn-cta:hover { background: linear-gradient(90deg, #EC8F51, #DC8046); }
 .btn-outline { border: 2px solid rgba(255,255,255,.35); color: #fff; background: transparent; }
 .btn-outline:hover { border-color: var(--accent-soft); color: var(--accent-soft); }
 /* Borde cobre sólido y fondo tibio: al lado del kit destacado se leía como
@@ -1203,7 +1207,9 @@ footer a:hover { text-decoration: underline; }
   p.sec-sub { margin-bottom: 12px; }
   .screen { gap: 8px; }
   .demo { gap: 10px; }
-  .faq summary { padding: 9px 13px; }
+  /* 11px y no 9px: con 9 el summary mide 41px de alto y es un área táctil
+     bajo los 44 exigidos. Cuesta 4px por pregunta, 40px en toda la página. */
+  .faq summary { padding: 11px 13px; }
   .faq .faq-a { padding: 0 14px 13px 42px; }
   .alerts-strip { margin-top: 14px; }
 
