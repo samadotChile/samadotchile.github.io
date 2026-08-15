@@ -946,11 +946,16 @@ nav {
 .alert-card .a-ico .ic { width: 22px; height: 22px; }
 .alert-card .a-t { font-size: 14px; font-weight: 800; margin-bottom: 1px; }
 .alert-card .a-b { font-size: 13px; color: var(--muted); line-height: 1.4; }
-/* Acá vivía .a-n, la línea en cobre que explicaba la condición de cada alerta
-   (respaldo de batería en el hub, sensor exterior). Se quitó el 08-08 por
-   decisión de Hugo: describía cómo funciona el sistema y eso es información
-   para la competencia. La condición se explica igual en la conversación de
-   venta y en la cotización, donde el que la lee es el cliente y no cualquiera. */
+/* Acá vivía .a-n, la línea en cobre que explicaba la condición de cada alerta.
+   Se quitó el 08-08 por decisión de Hugo: describía cómo funciona el sistema y
+   eso es información para la competencia. La condición se explica igual en la
+   conversación de venta y en la cotización, donde el que la lee es el cliente
+   y no cualquiera.
+
+   ⚠️ Este comentario nombraba esas condiciones uno por uno, y los comentarios
+   VAN EN EL HTML PUBLICADO: cualquiera que abra el código fuente los lee. Sacar
+   una frase de la página y dejarla escrita en el comentario que explica por qué
+   se sacó no esconde nada. Al aplicar esta regla, limpiar las dos partes. */
 @media (prefers-reduced-motion: reduce) {
   .pulse { animation: none; }
   .notif { transition: none; }
@@ -1850,13 +1855,12 @@ footer a:hover { text-decoration: underline; }
             <div class="a-ico"><svg class="ic" aria-hidden="true"><use href="#i-rayo"/></svg></div>
             <div>
               <div class="a-t">Corte de luz</div>
-              <!-- El aviso de ejemplo decía «4 equipos se cayeron a la vez»,
-                   que es el método de detección. Fuera por la misma razón por
-                   la que salieron las líneas en cobre el 08-08: no se explica
-                   cómo funciona el sistema en material público. Queda la hora,
-                   igual que en las otras tarjetas. Lo que SÍ se dice es el
-                   beneficio —que no confunde un corte con una ampolleta—, que
-                   es lo que le importa al cliente y no revela nada. -->
+              <!-- El aviso de ejemplo describía el método de detección. Fuera
+                   el 14-08, por la misma regla que vació el comentario de .a-n
+                   en el CSS: no se explica cómo funciona el sistema en material
+                   público. Queda la hora, igual que en las otras tarjetas, y se
+                   mantiene el beneficio, que es lo que le importa al cliente.
+                   El detalle va en la cotización, no acá. -->
               <div class="a-b">"Se cortó la luz — 20:14". Distingue un corte de verdad de una ampolleta quemada, y te avisa otra vez cuando la luz vuelve.</div>
             </div>
           </div>
