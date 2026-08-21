@@ -1375,7 +1375,7 @@ footer a:hover { text-decoration: underline; }
       <svg class="ic i-cerrar" aria-hidden="true"><use href="#i-equis"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#kits">Kits</a>
+      <a href="#kits">Precios</a>
       <a href="#dashboard">Dashboard</a>
       <a href="#servicios">Servicios</a>
       <a href="#preguntas">Preguntas</a>
@@ -1401,7 +1401,7 @@ footer a:hover { text-decoration: underline; }
       <p class="lead">Instalamos y configuramos domótica con el cerebro <strong>dentro de tu hogar</strong>: tus luces y automatizaciones siguen funcionando aunque se caiga internet, controlas todo desde una app gratuita y no pagas suscripciones.</p>
       <div class="hero-ctas">
         <a class="btn btn-cta js-wa" href="#contacto"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotiza por WhatsApp</a>
-        <a class="btn btn-outline" href="#kits">Ver los kits</a>
+        <a class="btn btn-outline" href="#kits">Ver precios</a>
       </div>
       <div class="chips">
         <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Sin obras ni cableado</span>
@@ -1728,80 +1728,91 @@ footer a:hover { text-decoration: underline; }
 </section>
 
 <section class="kits" id="kits">
+  <!-- ===== REESTRUCTURACIÓN 20-08-2026: de tres kits a pack + expansión =====
+       Antes había Kit Básico / Medio / Avanzado, los tres con «Valor a cotizar».
+       Se reemplazan por: Pack de entrada · Crece cuando quieras · El panel Samadot.
+
+       Motivo: el kit más barato pedía $251.950 en equipos antes de cobrar una hora
+       de servicio, y el cuello de botella del negocio no es el producto, son las
+       conversaciones que no empiezan. La entrada baja a ~$112.000 en equipos.
+
+       El id="kits" se MANTIENE a propósito, aunque la sección ya no hable de kits:
+       cambiarlo rompería cualquier enlace #kits que ya esté circulando. Solo
+       cambia la etiqueta visible del menú.
+
+       Los precios de servicio salen de 2-Producto\precios-servicio.html a $20.000
+       la hora: Instalación Base 4,5 h = $90.000 · Panel Samadot 3,5 h = $70.000 ·
+       sensor adicional 0,4 h = $8.000 · punto adicional 0,6 h = $12.000.
+       Los de equipos se consultaron ficha por ficha en mcielectronics.cl el
+       20-08-2026 y van REDONDEADOS: la página no se actualiza cada semana y el
+       stock ya se movió dos veces en trece días. Si se tocan, tocar también
+       3-Clientes\lista-equipos-kits.html, que es la lista fina.
+  -->
   <div class="wrap">
-    <span class="kicker">Kits</span>
-    <h2 class="sec-title">Elige tu punto de partida</h2>
-    <p class="sec-sub">Cada kit incluye instalación, configuración y capacitación. <strong>Los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Cada uno parte del anterior: creces cuando quieras, y la lista final la armamos según tu casa.</p>
+    <span class="kicker">Precios</span>
+    <h2 class="sec-title">Empieza simple y crece cuando quieras</h2>
+    <p class="sec-sub">Nosotros cobramos el servicio; <strong>los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Los valores de equipos son referenciales a agosto de 2026 y los revisamos contigo antes de comprar.</p>
     <div class="kit-grid">
 
-      <div class="kit">
-        <div class="k-name">Kit Básico</div>
+      <div class="kit featured">
+        <!-- El destacado pasa del kit del medio al pack de entrada: lo que
+             queremos que elija alguien que llega por primera vez es empezar. -->
+        <div class="ribbon">Por acá se empieza</div>
+        <div class="k-name">Pack de entrada</div>
         <h3>Comodidad</h3>
-        <div class="k-tag">"Tus luces, bajo control. Sin complicaciones."</div>
-        <!-- ===== HUECO PARA EL PRECIO (bloque C4) =====
-             Cuando me pases los montos, en los tres kits se reemplazan estas
-             dos líneas por:
-
-             <div class="k-price"><span class="k-desde">desde</span>$XXX.XXX</div>
-             <div class="k-price-note">valor del servicio · equipos aparte, entre $XXX.XXX y $XXX.XXX</div>
-
-             Los estilos .k-price y .k-desde ya están escritos y probados; no
-             hay que tocar CSS. Mientras no haya monto, el bloque no grita.  -->
-        <div class="k-sin-precio">Valor a cotizar</div>
-        <div class="k-price-note">te cotizamos el servicio y te pasamos la lista de equipos</div>
+        <div class="k-tag">"Tus luces y tu puerta, bajo control."</div>
+        <div class="k-price"><span class="k-desde">desde</span>$90.000</div>
+        <div class="k-price-note">valor del servicio · equipos aparte, alrededor de $112.000 que compras tú</div>
         <ul>
-          <li><span class="d"></span>Hub central local + app en tu celular</li>
-          <li><span class="d"></span>Interruptores de iluminación inteligentes</li>
-          <li><span class="d"></span>Control por sectores, escenas y horarios</li>
-          <li><span class="d"></span>Instalación, configuración y capacitación</li>
+          <li><span class="d"></span>El equipo central, dentro de tu casa</li>
+          <li><span class="d"></span>Dos puntos de luz con interruptor inteligente</li>
+          <li><span class="d"></span>Un sensor de apertura de puerta o ventana</li>
+          <li><span class="d"></span>Instalación, configuración y capacitación a tu familia</li>
         </ul>
         <a class="k-see" href="#dashboard" data-kitlvl="1">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Kit Básico"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar este kit</a>
-      </div>
-
-      <div class="kit featured">
-        <!-- «El más elegido» no se puede respaldar: el negocio es nuevo y no hay
-             volumen de ventas que lo sostenga. Esto sí es verdad y dice lo mismo. -->
-        <div class="ribbon">El que más recomendamos</div>
-        <div class="k-name">Kit Medio</div>
-        <h3>Tranquilidad</h3>
-        <div class="k-tag">"Sabes lo que pasa en tu casa, estés donde estés."</div>
-        <div class="k-sin-precio">Valor a cotizar</div>
-        <div class="k-price-note">te cotizamos el servicio y te pasamos la lista de equipos</div>
-        <ul>
-          <li><span class="d"></span><strong>Todo lo del Kit Básico</strong></li>
-          <li><span class="d"></span>Sensores de movimiento y de apertura de puertas</li>
-          <li><span class="d"></span>Notificación a tu teléfono cuando hay movimiento</li>
-          <li><span class="d"></span>Modos En casa, Noche y Salí</li>
-        </ul>
-        <a class="k-see" href="#dashboard" data-kitlvl="2">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-cta btn-block js-wa" href="#contacto" data-kit="Kit Medio"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar este kit</a>
+        <a class="btn btn-cta btn-block js-wa" href="#contacto" data-kit="Pack de entrada"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar el pack</a>
       </div>
 
       <div class="kit">
-        <div class="k-name"><svg class="ic" aria-hidden="true"><use href="#i-estrella"/></svg> Kit Avanzado</div>
+        <div class="k-name">Crece cuando quieras</div>
+        <h3>A tu ritmo</h3>
+        <div class="k-tag">"Hoy un sensor, mañana otra luz."</div>
+        <div class="k-price"><span class="k-desde">desde</span>$20.000</div>
+        <div class="k-price-note">un sensor puesto: $8.000 de instalación más el equipo, desde $11.990, que compras tú</div>
+        <ul>
+          <li><span class="d"></span>Sensores de movimiento, puerta, temperatura o fuga de agua</li>
+          <li><span class="d"></span>Más puntos de luz: $12.000 de instalación cada uno</li>
+          <li><span class="d"></span>Enchufes controlables y botones inalámbricos</li>
+          <li><span class="d"></span><strong>Todo se suma a lo que ya tienes instalado</strong></li>
+        </ul>
+        <a class="k-see" href="#dashboard" data-kitlvl="2">Ver cómo se ve en el panel →</a>
+        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Sumar dispositivos"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar qué sumar</a>
+      </div>
+
+      <div class="kit">
+        <div class="k-name"><svg class="ic" aria-hidden="true"><use href="#i-estrella"/></svg> El panel Samadot</div>
         <h3>Control total</h3>
         <div class="k-tag">"Toda tu casa en una sola pantalla."</div>
-        <div class="k-sin-precio">Valor a cotizar</div>
-        <div class="k-price-note">te cotizamos el servicio y te pasamos la lista de equipos</div>
+        <div class="k-price"><span class="k-desde">desde</span>$70.000</div>
+        <div class="k-price-note">instalación del panel · equipo central aparte, desde $173.000 que compras tú</div>
         <ul>
-          <li><span class="d"></span><strong>Todo lo del Kit Medio</strong></li>
-          <li><span class="d"></span>Cámaras en la misma pantalla: ves el video sin abrir otra app ni pasar por la nube</li>
-          <li><span class="d"></span>Sensor de fuga de agua bajo lavaplatos o calefont</li>
-          <!-- Acá decía «Historial de temperatura y humedad de cada pieza» y
-               «Usuario y clave para cada miembro de la familia». Las dos son
-               funciones del panel, no equipos, y las dos estaban repetidas
-               tal cual en la lista de la sección Dashboard. El kit describe lo
-               que se instala; el panel describe lo que hace. Así una versión
-               nueva del panel no obliga a editar los kits. -->
-          <li><span class="d"></span>Sensores de temperatura y humedad en las piezas que elijas</li>
+          <li><span class="d"></span>Pantalla propia con tus piezas, tus modos y tus horarios</li>
+          <li><span class="d"></span>Cámaras en la misma pantalla, sin abrir otra app</li>
+          <li><span class="d"></span>Usuario y clave para cada miembro de la familia</li>
+          <li><span class="d"></span><strong>Lo que ya compraste se sigue usando</strong></li>
         </ul>
         <a class="k-see" href="#dashboard" data-kitlvl="3">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Kit Avanzado"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar este kit</a>
+        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="El panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
       </div>
 
     </div>
-    <p class="kits-note"><strong>Todo funciona de forma local, dentro de tu casa.</strong> Lo único que necesita internet son las notificaciones a tu teléfono y el control por voz.</p>
+    <!-- Precisión del 20-08-2026. Antes decía «Todo funciona de forma local (…)
+         lo único que necesita internet son las notificaciones y el control por
+         voz». Con el equipo central del pack de entrada eso ya no es exacto:
+         los interruptores y las automatizaciones sí corren dentro de la casa,
+         pero controlar desde el teléfono estando fuera pasa por internet. Se
+         precisa en vez de borrarlo: lo que se promete sigue siendo verdad. -->
+    <p class="kits-note"><strong>Tus interruptores y tus automatizaciones funcionan dentro de tu casa</strong>, aunque se caiga internet. Para controlar desde el teléfono cuando no estás, y para las notificaciones, se usa internet.</p>
     <p class="kits-note">¿Ya tienes dispositivos inteligentes? <a class="enlace-toca" href="#servicios">Mira el estudio de compatibilidad</a></p>
   </div>
 </section>
@@ -1823,8 +1834,8 @@ footer a:hover { text-decoration: underline; }
              lo que pasa dentro de la casa— sin entrar en cómo funciona. -->
         <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Privacidad: tus cámaras, tus sensores y tu historial no salen de tu casa</li>
       </ul>
-      <a class="btn btn-cta js-wa" href="#contacto" data-kit="Upgrade Dashboard Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el upgrade</a>
-      <p class="fine">Disponible como upgrade en instalaciones con hub compatible. Incluye personalización con los nombres de tus habitaciones y usuarios para tu familia. Se entrega en una versión probada y validada por nosotros, con 6 meses de soporte incluido.</p>
+      <a class="btn btn-cta js-wa" href="#contacto" data-kit="El panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
+      <p class="fine">Se suma sobre el equipo central local: es el paso siguiente al pack de entrada. Incluye personalización con los nombres de tus habitaciones y usuarios para tu familia. Se entrega en una versión probada y validada por nosotros, con 6 meses de soporte incluido.</p>
 
       <!-- La franja de avisos vive acá dentro, no en un bloque aparte debajo:
            llena los ~470px que quedaban vacíos al lado del teléfono. Ver el
@@ -1890,10 +1901,10 @@ footer a:hover { text-decoration: underline; }
     </div>
     <div class="demo">
       <span class="demo-tag"><i></i> Demostración · datos de ejemplo</span>
-      <div class="demo-kits" id="dKits" role="group" aria-label="Ver el panel según el kit">
-        <button data-kitlvl="1">Kit Básico</button>
-        <button data-kitlvl="2">Kit Medio</button>
-        <button class="on" data-kitlvl="3">Kit Avanzado</button>
+      <div class="demo-kits" id="dKits" role="group" aria-label="Ver el panel según lo que tengas instalado">
+        <button data-kitlvl="1">Solo luces</button>
+        <button data-kitlvl="2">Con sensores</button>
+        <button class="on" data-kitlvl="3">Completa</button>
       </div>
       <div class="phone-wrap">
         <div class="phone">
@@ -2067,7 +2078,7 @@ footer a:hover { text-decoration: underline; }
 <section id="servicios">
   <div class="wrap">
     <span class="kicker">Servicios adicionales</span>
-    <h2 class="sec-title">Más allá de los kits</h2>
+    <h2 class="sec-title">Más allá del pack</h2>
     <p class="sec-sub">Soluciones para casas que ya tienen tecnología, o que necesitan una base de red sólida antes de partir.</p>
     <!-- Acá había una tercera tarjeta, «Upgrade Dashboard Samadot». Se eliminó:
          el Dashboard aparecía tres veces en la página —sección propia con la
@@ -2080,7 +2091,7 @@ footer a:hover { text-decoration: underline; }
         <div class="ico-tile"><svg class="ic" aria-hidden="true"><use href="#i-lupa"/></svg></div>
         <h3>Estudio de compatibilidad</h3>
         <p>¿Ya compraste dispositivos inteligentes? Visitamos tu casa, evaluamos qué se puede integrar a un solo sistema y te entregamos un informe claro.</p>
-        <div class="price">A cotizar · descontable del kit</div>
+        <div class="price">A cotizar · descontable del servicio</div>
         <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Estudio de compatibilidad"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Pedir el estudio</a>
       </div>
       <div class="svc">
@@ -2106,7 +2117,7 @@ footer a:hover { text-decoration: underline; }
       </div>
       <div class="step">
         <h3>Propuesta clara</h3>
-        <p>Te entregamos una cotización formal con el kit recomendado, el valor del servicio y la lista de equipos que debes comprar. Precio cerrado y sin letra chica.</p>
+        <p>Te entregamos una cotización formal con la lista de equipos recomendada, el valor del servicio y la lista de equipos que debes comprar. Precio cerrado y sin letra chica.</p>
       </div>
       <div class="step">
         <h3>Instalación en un día</h3>
@@ -2194,7 +2205,7 @@ footer a:hover { text-decoration: underline; }
 
       <details>
         <summary>¿Puedo empezar con poco y crecer después?</summary>
-        <div class="faq-a">Para eso están pensados los kits: cada uno parte del anterior. Puedes partir solo con iluminación y más adelante sumar sensores, cámaras o lo que necesites, <strong>sin botar nada de lo ya instalado</strong>.</div>
+        <div class="faq-a">Es exactamente así como está pensado. Partes con el pack de entrada y después sumas lo que quieras, cuando quieras: un sensor, otra luz, un enchufe. <strong>Todo se agrega a lo que ya tienes</strong>, sin botar nada de lo instalado.</div>
       </details>
 
       <details>
@@ -2265,12 +2276,11 @@ footer a:hover { text-decoration: underline; }
           <label for="fa-kit">Qué te interesa</label>
           <select id="fa-kit" name="interes">
             <option>Todavía no sé, quiero orientación</option>
-            <option>Kit Básico</option>
-            <option>Kit Medio</option>
-            <option>Kit Avanzado</option>
+            <option>Pack de entrada</option>
+            <option>Sumar dispositivos</option>
+            <option>El panel Samadot</option>
             <option>Estudio de compatibilidad</option>
             <option>Red WiFi Mesh</option>
-            <option>Upgrade Dashboard Samadot</option>
           </select>
         </div>
       </div>
@@ -2410,7 +2420,7 @@ footer a:hover { text-decoration: underline; }
       "name": "¿Puedo empezar con poco y crecer después?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Para eso están pensados los kits: cada uno parte del anterior. Puedes partir solo con iluminación y más adelante sumar sensores, cámaras o lo que necesites, sin botar nada de lo ya instalado."
+        "text": "Es exactamente así como está pensado. Partes con el pack de entrada y después sumas lo que quieras, cuando quieras: un sensor, otra luz, un enchufe. Todo se agrega a lo que ya tienes, sin botar nada de lo instalado."
       }
     },
     {
