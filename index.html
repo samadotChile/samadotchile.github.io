@@ -614,7 +614,22 @@ nav {
 .kit .k-sin-precio { font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -.2px; }
 .kit .k-price { font-size: 34px; font-weight: 800; color: var(--accent-soft); letter-spacing: -1px; }
 .kit .k-price .k-desde { font-size: 14px; font-weight: 700; color: var(--muted); letter-spacing: 0; margin-right: 5px; }
+.kit .k-price .k-iva { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
 .kit .k-price-note { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+/* ===== DOS OPCIONES DE HUB DENTRO DEL PACK DE ENTRADA — 18-09-2026 =====
+   El pack de entrada se abre en dos equipos centrales (Nube, económico · Local,
+   100% local) con precio de servicio propio cada uno. Van dentro de la misma
+   tarjeta destacada, no como una cuarta tarjeta: la regla de la grilla es 3 o 1
+   columnas, nunca 2+1, y una cuarta tarjeta la rompería a 900-1000px. */
+.k-opciones { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.k-opcion { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.k-opcion-nombre {
+  display: flex; align-items: baseline; gap: 8px; font-size: 14px; font-weight: 800;
+  color: var(--ink); margin-bottom: 2px;
+}
+.k-opcion-nombre span { font-size: 12px; font-weight: 600; color: var(--muted); }
+.k-opcion .k-price { font-size: 26px; margin-bottom: 2px; }
+.k-opcion .k-price-note { font-size: 11.5px; margin-bottom: 12px; }
 .kit ul { list-style: none; margin-bottom: 16px; flex: 1; }
 .kit li {
   display: flex; gap: 9px; align-items: flex-start; font-size: 14px;
@@ -1741,68 +1756,116 @@ footer a:hover { text-decoration: underline; }
        cambia la etiqueta visible del menú.
 
        Los precios de servicio salen de 2-Producto\precios-servicio.html a $20.000
-       la hora: Instalación Base 4,5 h = $90.000 · Panel Samadot 3,5 h = $70.000 ·
-       sensor adicional 0,4 h = $8.000 · punto adicional 0,6 h = $12.000.
+       la hora: Panel Samadot 3,5 h = $70.000.
        Los de equipos se consultaron ficha por ficha en mcielectronics.cl el
        20-08-2026 y van REDONDEADOS: la página no se actualiza cada semana y el
        stock ya se movió dos veces en trece días. Si se tocan, tocar también
        3-Clientes\lista-equipos-kits.html, que es la lista fina.
+
+       ── 18-09-2026: EL PACK DE ENTRADA SE ABRE EN NUBE Y LOCAL ────────────
+       Decisión de Hugo: vuelve el Bridge Pro como hub de entrada económico
+       (se había descartado el 20-08 por no tener MQTT/API local/Ethernet — el
+       trade-off se acepta a cambio de una entrada más barata). El pack ahora
+       incluye 3 sensores (antes 1) y dos precios de servicio fijos: $50.000 con
+       Bridge Pro (Nube) · $90.000 con Bridge Max (Local). Ambos "desde": varían
+       con la zona. Las dos opciones van DENTRO de la tarjeta destacada
+       (.k-opciones), no como cuarta tarjeta, para no romper la regla de grilla
+       3-o-1.
+
+       ── 18/19-09-2026: PRECIO PLANO POR UNIDAD + IVA PAREJO ────────────────
+       Instrucción de Hugo: todo precio de servicio se muestra "+ IVA" (antes
+       solo se mencionaba si el cliente pedía factura — sigue sin resolver si
+       Samadot puede emitir factura sin romper la elegibilidad Sercotec, ver
+       ESTADO.md, esto es solo presentación). Los adicionales pasan de hora a
+       precio plano: actuador (punto de luz o enchufe) $10.000 + IVA, sensor
+       $7.000 + IVA. Mínimo 2 dispositivos por instalación.
+
+       ── 19-09-2026: EL PANEL SAMADOT SE PLIEGA DENTRO DEL PACK LOCAL ───────
+       Instrucción de Hugo: deja de venderse como complemento genérico para
+       cualquiera. Ahora viene incluido de fábrica en el Pack de entrada ·
+       Local, SIN sumar los $70.000 de instalación de panel aparte — el
+       servicio del Local queda fijo en $90.000 (equipos ~$324.000).
+       Corrección del mismo día: la primera versión sí sumaba los $70.000
+       encima (daba $160.000); `incluye.panel` en productos.json + el ajuste
+       en calculo.js lo dejaron en $90.000, ver ESTADO.md. La cuarta tarjeta
+       pasa de "El panel Samadot" a "Salto al panel Samadot": queda solo para
+       quien partió con el pack Nube y quiere sumarlo después (sigue en
+       $70.000 de servicio + ~$173.000 en equipos, sin cambios — es el mismo
+       pack técnico `salto-panel` de productos.json).
   -->
   <div class="wrap">
     <span class="kicker">Precios</span>
     <h2 class="sec-title">Empieza simple y crece cuando quieras</h2>
-    <p class="sec-sub">Nosotros cobramos el servicio; <strong>los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Los valores de equipos son referenciales a agosto de 2026 y los revisamos contigo antes de comprar.</p>
+    <p class="sec-sub">Nosotros cobramos el servicio; <strong>los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Los valores de equipos son referenciales a agosto de 2026 y los revisamos contigo antes de comprar. Precios de servicio + IVA. <strong>El sistema siempre puede crecer</strong>: agregas actuadores y sensores cuando quieras, mínimo 2 dispositivos por visita.</p>
     <div class="kit-grid">
 
       <div class="kit featured">
         <!-- El destacado pasa del kit del medio al pack de entrada: lo que
-             queremos que elija alguien que llega por primera vez es empezar. -->
+             queremos que elija alguien que llega por primera vez es empezar.
+
+             18-09-2026: el pack de entrada se abre en dos equipos centrales,
+             con precio de servicio propio cada uno — ver el comentario de
+             .k-opciones en el CSS. -->
         <div class="ribbon">Por acá se empieza</div>
         <div class="k-name">Pack de entrada</div>
         <h3>Comodidad</h3>
-        <div class="k-tag">"Tus luces y tu puerta, bajo control."</div>
-        <div class="k-price"><span class="k-desde">desde</span>$90.000</div>
-        <div class="k-price-note">valor del servicio · equipos aparte, alrededor de $112.000 que compras tú</div>
+        <div class="k-tag">"Tus luces, tu puerta y tus sensores, bajo control."</div>
+
+        <div class="k-opciones">
+          <div class="k-opcion">
+            <div class="k-opcion-nombre">Nube <span>equipo central económico</span></div>
+            <div class="k-price"><span class="k-desde">desde</span>$50.000<span class="k-iva"> + IVA</span></div>
+            <div class="k-price-note">valor del servicio · equipos aparte, alrededor de $103.000 que compras tú</div>
+            <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Nube"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Nube</a>
+          </div>
+          <div class="k-opcion">
+            <div class="k-opcion-nombre">Local <span>control 100% dentro de tu casa + panel Samadot incluido</span></div>
+            <div class="k-price"><span class="k-desde">desde</span>$90.000<span class="k-iva"> + IVA</span></div>
+            <div class="k-price-note">valor del servicio, panel Samadot incluido sin cargo adicional · equipos aparte, alrededor de $324.000 que compras tú</div>
+            <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Local"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Local</a>
+          </div>
+        </div>
+
         <ul>
           <li><span class="d"></span>El equipo central, dentro de tu casa</li>
           <li><span class="d"></span>Dos puntos de luz con interruptor inteligente</li>
-          <li><span class="d"></span>Un sensor de apertura de puerta o ventana</li>
+          <li><span class="d"></span>Tres sensores (puerta, movimiento y temperatura/humedad)</li>
           <li><span class="d"></span>Instalación, configuración y capacitación a tu familia</li>
+          <li><span class="d"></span><strong>Con Local, el panel Samadot viene incluido de fábrica</strong> — sin pedirlo aparte</li>
         </ul>
         <a class="k-see" href="#dashboard" data-kitlvl="1">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-cta btn-block js-wa" href="#contacto" data-kit="Pack de entrada"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar el pack</a>
       </div>
 
       <div class="kit">
         <div class="k-name">Crece cuando quieras</div>
         <h3>A tu ritmo</h3>
         <div class="k-tag">"Hoy un sensor, mañana otra luz."</div>
-        <div class="k-price"><span class="k-desde">desde</span>$20.000</div>
-        <div class="k-price-note">un sensor puesto: $8.000 de instalación más el equipo, desde $11.990, que compras tú</div>
+        <div class="k-price"><span class="k-desde">desde</span>$19.000<span class="k-iva"> + IVA</span></div>
+        <div class="k-price-note">un sensor puesto: $7.000 + IVA de instalación más el equipo, desde $11.990, que compras tú</div>
         <ul>
           <li><span class="d"></span>Sensores de movimiento, puerta, temperatura o fuga de agua</li>
-          <li><span class="d"></span>Más puntos de luz: $12.000 de instalación cada uno</li>
+          <li><span class="d"></span>Más puntos de luz: $10.000 + IVA de instalación cada uno</li>
           <li><span class="d"></span>Enchufes controlables y botones inalámbricos</li>
-          <li><span class="d"></span><strong>Todo se suma a lo que ya tienes instalado</strong></li>
+          <li><span class="d"></span><strong>Todo se suma a lo que ya tienes instalado — mínimo 2 dispositivos por visita</strong></li>
         </ul>
         <a class="k-see" href="#dashboard" data-kitlvl="2">Ver cómo se ve en el panel →</a>
         <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Sumar dispositivos"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar qué sumar</a>
       </div>
 
       <div class="kit">
-        <div class="k-name"><svg class="ic" aria-hidden="true"><use href="#i-estrella"/></svg> El panel Samadot</div>
-        <h3>Control total</h3>
+        <div class="k-name"><svg class="ic" aria-hidden="true"><use href="#i-estrella"/></svg> Salto al panel Samadot</div>
+        <h3>Para quien partió con Nube</h3>
         <div class="k-tag">"Toda tu casa en una sola pantalla."</div>
-        <div class="k-price"><span class="k-desde">desde</span>$70.000</div>
+        <div class="k-price"><span class="k-desde">desde</span>$70.000<span class="k-iva"> + IVA</span></div>
         <div class="k-price-note">instalación del panel · equipo central aparte, desde $173.000 que compras tú</div>
         <ul>
           <li><span class="d"></span>Pantalla propia con tus piezas, tus modos y tus horarios</li>
           <li><span class="d"></span>Cámaras en la misma pantalla, sin abrir otra app</li>
           <li><span class="d"></span>Usuario y clave para cada miembro de la familia</li>
-          <li><span class="d"></span><strong>Lo que ya compraste se sigue usando</strong></li>
+          <li><span class="d"></span><strong>Lo que ya compraste se sigue usando</strong> — pensado para quien eligió el pack Nube y ahora quiere el panel (con Local ya viene incluido)</li>
         </ul>
         <a class="k-see" href="#dashboard" data-kitlvl="3">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="El panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
+        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Salto al panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
       </div>
 
     </div>
@@ -1820,7 +1883,7 @@ footer a:hover { text-decoration: underline; }
 <section class="dash" id="dashboard">
   <div class="wrap dash-grid">
     <div>
-      <span class="kicker">Producto propio · exclusivo Samadot</span>
+      <span class="kicker">Producto propio · exclusivo Samadot · solo en el pack Local</span>
       <h2>Dashboard Samadot: la app de tu casa, corriendo en tu casa</h2>
       <p class="d-lead">Desarrollamos nuestro propio software de control. No es una app de tienda que depende de un servidor extranjero: corre <strong>dentro del hub de tu hogar</strong> y se abre desde el navegador de cualquier equipo de la casa —celular, tablet o computador— <strong>sin instalar nada</strong>. Entre otras cosas:</p>
       <ul class="dash-feats">
@@ -1834,8 +1897,8 @@ footer a:hover { text-decoration: underline; }
              lo que pasa dentro de la casa— sin entrar en cómo funciona. -->
         <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Privacidad: tus cámaras, tus sensores y tu historial no salen de tu casa</li>
       </ul>
-      <a class="btn btn-cta js-wa" href="#contacto" data-kit="El panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
-      <p class="fine">Se suma sobre el equipo central local: es el paso siguiente al pack de entrada. Incluye personalización con los nombres de tus habitaciones y usuarios para tu familia. Se entrega en una versión probada y validada por nosotros, con 6 meses de soporte incluido.</p>
+      <a class="btn btn-cta js-wa" href="#contacto" data-kit="Pack de entrada · Local"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar con el panel incluido</a>
+      <p class="fine">Viene incluido de fábrica en el pack de entrada Local. Si partiste con el pack Nube, se suma después como paso aparte. Incluye personalización con los nombres de tus habitaciones y usuarios para tu familia. Se entrega en una versión probada y validada por nosotros, con 6 meses de soporte incluido.</p>
 
       <!-- La franja de avisos vive acá dentro, no en un bloque aparte debajo:
            llena los ~470px que quedaban vacíos al lado del teléfono. Ver el
@@ -2236,7 +2299,7 @@ footer a:hover { text-decoration: underline; }
            en pantalla, y no había ni un enlace tel:. Ahora se ve como texto en
            el pie y acá tiene botón propio para llamar desde el celular. -->
       <a class="btn btn-outline btn-llamar" href="tel:+56963365302"><svg class="ic" aria-hidden="true"><use href="#i-telefono"/></svg> Llamar ahora</a>
-      <a class="btn btn-outline" href="mailto:samadot@outlook.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> samadot@outlook.com</a>
+      <a class="btn btn-outline" href="mailto:samadotchile@gmail.com"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg> samadotchile@gmail.com</a>
     </div>
     <div class="contact-meta">
       <span>Teléfono: <a class="enlace-toca" href="tel:+56963365302">+56 9 6336 5302</a></span>
@@ -2276,9 +2339,10 @@ footer a:hover { text-decoration: underline; }
           <label for="fa-kit">Qué te interesa</label>
           <select id="fa-kit" name="interes">
             <option>Todavía no sé, quiero orientación</option>
-            <option>Pack de entrada</option>
+            <option>Pack de entrada · Nube</option>
+            <option>Pack de entrada · Local</option>
             <option>Sumar dispositivos</option>
-            <option>El panel Samadot</option>
+            <option>Salto al panel Samadot</option>
             <option>Estudio de compatibilidad</option>
             <option>Red WiFi Mesh</option>
           </select>
@@ -2301,7 +2365,7 @@ footer a:hover { text-decoration: underline; }
     <b>SAMADOT</b> · Domótica residencial en Talca, Constitución y toda la Región del Maule
     <div class="f-linea">
       <a href="tel:+56963365302">+56 9 6336 5302</a> ·
-      <a href="mailto:samadot@outlook.com">samadot@outlook.com</a> ·
+      <a href="mailto:samadotchile@gmail.com">samadotchile@gmail.com</a> ·
       <a href="https://www.instagram.com/samadotchile/" target="_blank" rel="noopener">@samadotchile</a>
     </div>
     <!-- ===== HUECO PARA HORARIO Y TIEMPO DE RESPUESTA (bloque C6) =====
@@ -2330,7 +2394,7 @@ footer a:hover { text-decoration: underline; }
   "url": "https://samadotchile.github.io/",
   "image": "https://samadotchile.github.io/og-2026-08.png",
   "logo": "https://samadotchile.github.io/og-2026-08.png",
-  "email": "samadot@outlook.com",
+  "email": "samadotchile@gmail.com",
   "telephone": "+56963365302",
   "priceRange": "$$",
   "address": {
