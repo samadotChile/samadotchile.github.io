@@ -253,6 +253,9 @@ nav {
   display: inline-flex; align-items: center; gap: 7px;
 }
 .chip .ic { width: 16px; height: 16px; color: var(--accent); stroke-width: 2.6; }
+/* Plazos (08-10-2026, valores dados por Hugo). Texto suelto: informa, no se toca. */
+.hero-plazos { font-size: 13.5px; color: var(--muted); margin: -10px 0 18px; }
+.hero-plazos strong { color: var(--ink); font-weight: 700; }
 /* ===== MAQUETA DEL PANEL EN EL HERO =====
    La mitad derecha era el logo del perro repetido a 300px. Ahora muestra el
    producto en la primera pantalla; el panel real estaba a 3.000px de scroll.
@@ -580,8 +583,10 @@ nav {
 
 /* ===== KITS ===== */
 .kits { background: var(--bg-soft); }
-.kit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
-/* 3 o 1, nunca 2+1. En una sola columna las tarjetas se limitan y se centran:
+.kit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: stretch; }
+/* 08-10-2026: sale la tarjeta «Crece cuando quieras» (Hugo) y quedan dos: pack de
+   entrada + salto al panel. Siguen siendo «todas en fila o 1», nunca 1+1 cortado.
+   3 o 1, nunca 2+1. En una sola columna las tarjetas se limitan y se centran:
    a 940px de ancho una tarjeta de kit se ve estirada y desamparada. */
 @media (max-width: 1000px) {
   .kit-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
@@ -616,6 +621,11 @@ nav {
 .kit .k-price .k-desde { font-size: 14px; font-weight: 700; color: var(--muted); letter-spacing: 0; margin-right: 5px; }
 .kit .k-price .k-iva { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
 .kit .k-price-note { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
+/* Precio de lanzamiento (08-10-2026, decisión de Hugo): Nube 50 / normal 65 ·
+   Local 90 / normal 120. El «normal» tiene que llegar a cobrarse de verdad:
+   anunciar un precio de referencia que nunca se cobra choca con la Ley 19.496. */
+.kit .k-oferta { font-size: 12px; font-weight: 700; color: var(--accent-soft); letter-spacing: .3px; margin-bottom: 2px; }
+.kit .k-oferta s { color: var(--muted); font-weight: 600; }
 /* ===== DOS OPCIONES DE HUB DENTRO DEL PACK DE ENTRADA — 18-09-2026 =====
    El pack de entrada se abre en dos equipos centrales (Nube, económico · Local,
    100% local) con precio de servicio propio cada uno. Van dentro de la misma
@@ -1042,6 +1052,21 @@ nav {
 .about-persona .ap-rol { font-size: 13.5px; color: var(--accent-soft); font-weight: 700; margin-top: 2px; }
 .about-persona .ap-anos { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
 @media (max-width: 820px) { .about-grid.con-foto { grid-template-columns: 1fr; } }
+/* Credencial verificable (08-10-2026). Única excepción a la regla «sin marcas»:
+   es un dato sobre el instalador, no sobre los equipos, y se comprueba en el
+   directorio público. Si se cambia de marca, se borra este bloque y listo. */
+.about-cred {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 18px; padding: 12px 16px; border: 1px solid var(--line);
+  border-radius: 12px; background: var(--card); font-size: 14px; color: var(--muted);
+}
+.about-cred .ac-nivel {
+  font-weight: 700; color: var(--cta-ink); background: var(--accent-soft);
+  border-radius: 999px; padding: 2px 10px; font-size: 12.5px;
+}
+.about-cred a { color: var(--accent-soft); font-weight: 600; text-decoration: none; }
+.about-cred a:hover { text-decoration: underline; }
+.about-cred a { display: inline-flex; align-items: center; min-height: 44px; }
 
 /* ===== PREGUNTAS FRECUENTES =====
    <details>/<summary> nativo: se abre sin JS, funciona con teclado y el
@@ -1418,6 +1443,7 @@ footer a:hover { text-decoration: underline; }
         <a class="btn btn-cta js-wa" href="#contacto"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotiza por WhatsApp</a>
         <a class="btn btn-outline" href="#kits">Ver precios</a>
       </div>
+      <p class="hero-plazos">Respuesta el <strong>mismo día hábil</strong> · Propuesta en <strong>72 h</strong> tras la visita · Instalación en <strong>un día</strong></p>
       <div class="chips">
         <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Sin obras ni cableado</span>
         <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg> Sin suscripciones</span>
@@ -1814,12 +1840,14 @@ footer a:hover { text-decoration: underline; }
         <div class="k-opciones">
           <div class="k-opcion">
             <div class="k-opcion-nombre">Nube <span>equipo central económico</span></div>
+            <div class="k-oferta">Precio de lanzamiento · normal <s>$65.000</s></div>
             <div class="k-price"><span class="k-desde">desde</span>$50.000<span class="k-iva"> + IVA</span></div>
             <div class="k-price-note">valor del servicio · equipos aparte, alrededor de $103.000 que compras tú</div>
             <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Nube"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Nube</a>
           </div>
           <div class="k-opcion">
             <div class="k-opcion-nombre">Local <span>control 100% dentro de tu casa + panel Samadot incluido</span></div>
+            <div class="k-oferta">Precio de lanzamiento · normal <s>$120.000</s></div>
             <div class="k-price"><span class="k-desde">desde</span>$90.000<span class="k-iva"> + IVA</span></div>
             <div class="k-price-note">valor del servicio, panel Samadot incluido sin cargo adicional · equipos aparte, alrededor de $324.000 que compras tú</div>
             <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Local"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Local</a>
@@ -1831,25 +1859,9 @@ footer a:hover { text-decoration: underline; }
           <li><span class="d"></span>Dos puntos de luz con interruptor inteligente</li>
           <li><span class="d"></span>Tres sensores (puerta, movimiento y temperatura/humedad)</li>
           <li><span class="d"></span>Instalación, configuración y capacitación a tu familia</li>
-          <li><span class="d"></span><strong>Con Local, el panel Samadot viene incluido de fábrica</strong> — sin pedirlo aparte</li>
+          <li><span class="d"></span><span><strong>Con Local, el panel Samadot viene incluido de fábrica</strong> — sin pedirlo aparte</span></li>
         </ul>
-        <a class="k-see" href="#dashboard" data-kitlvl="1">Ver cómo se ve en el panel →</a>
-      </div>
-
-      <div class="kit">
-        <div class="k-name">Crece cuando quieras</div>
-        <h3>A tu ritmo</h3>
-        <div class="k-tag">"Hoy un sensor, mañana otra luz."</div>
-        <div class="k-price"><span class="k-desde">desde</span>$19.000<span class="k-iva"> + IVA</span></div>
-        <div class="k-price-note">un sensor puesto: $7.000 + IVA de instalación más el equipo, desde $11.990, que compras tú</div>
-        <ul>
-          <li><span class="d"></span>Sensores de movimiento, puerta, temperatura o fuga de agua</li>
-          <li><span class="d"></span>Más puntos de luz: $10.000 + IVA de instalación cada uno</li>
-          <li><span class="d"></span>Enchufes controlables y botones inalámbricos</li>
-          <li><span class="d"></span><strong>Todo se suma a lo que ya tienes instalado — mínimo 2 dispositivos por visita</strong></li>
-        </ul>
-        <a class="k-see" href="#dashboard" data-kitlvl="2">Ver cómo se ve en el panel →</a>
-        <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Sumar dispositivos"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar qué sumar</a>
+        <a class="k-see" href="#dashboard" data-kitlvl="1">Cómo se ve en el panel →</a>
       </div>
 
       <div class="kit">
@@ -1862,9 +1874,9 @@ footer a:hover { text-decoration: underline; }
           <li><span class="d"></span>Pantalla propia con tus piezas, tus modos y tus horarios</li>
           <li><span class="d"></span>Cámaras en la misma pantalla, sin abrir otra app</li>
           <li><span class="d"></span>Usuario y clave para cada miembro de la familia</li>
-          <li><span class="d"></span><strong>Lo que ya compraste se sigue usando</strong> — pensado para quien eligió el pack Nube y ahora quiere el panel (con Local ya viene incluido)</li>
+          <li><span class="d"></span><span><strong>Lo que ya compraste se sigue usando</strong> — pensado para quien eligió el pack Nube y ahora quiere el panel (con Local ya viene incluido)</span></li>
         </ul>
-        <a class="k-see" href="#dashboard" data-kitlvl="3">Ver cómo se ve en el panel →</a>
+        <a class="k-see" href="#dashboard" data-kitlvl="3">Cómo se ve en el panel →</a>
         <a class="btn btn-dark btn-block js-wa" href="#contacto" data-kit="Salto al panel Samadot"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar por el panel</a>
       </div>
 
@@ -2176,11 +2188,11 @@ footer a:hover { text-decoration: underline; }
     <div class="steps">
       <div class="step">
         <h3>Conversamos</h3>
-        <p>Nos cuentas por WhatsApp qué necesitas. Coordinamos una visita para conocer tu casa y tus prioridades.</p>
+        <p>Nos cuentas por WhatsApp qué necesitas y te respondemos el mismo día hábil. Coordinamos una visita para conocer tu casa y tus prioridades.</p>
       </div>
       <div class="step">
         <h3>Propuesta clara</h3>
-        <p>Te entregamos una cotización formal con la lista de equipos recomendada, el valor del servicio y la lista de equipos que debes comprar. Precio cerrado y sin letra chica.</p>
+        <p>Te entregamos una cotización formal con la lista de equipos recomendada, el valor del servicio y la lista de equipos que debes comprar. Te llega dentro de 72 horas después de la visita, con precio cerrado y sin letra chica.</p>
       </div>
       <div class="step">
         <h3>Instalación en un día</h3>
@@ -2188,7 +2200,7 @@ footer a:hover { text-decoration: underline; }
       </div>
       <div class="step">
         <h3>Capacitación y soporte</h3>
-        <p>Te enseñamos a usar todo (30 min) y quedas con soporte por WhatsApp y 6 meses de garantía sobre nuestro servicio.</p>
+        <p>Te enseñamos a usar todo (30 min). Durante el <strong>primer mes ajustamos sin costo</strong> horarios, escenas y avisos según cómo vive tu familia, y quedas con soporte por WhatsApp y 6 meses de garantía sobre nuestro servicio.</p>
       </div>
     </div>
   </div>
@@ -2220,6 +2232,11 @@ footer a:hover { text-decoration: underline; }
       <h2 class="sec-title">Tecnología con propósito familiar</h2>
       <p><strong>Samadot</strong> nace en la Región del Maule de una convicción simple: la tecnología del hogar debe servir a la familia — sin cobrarle mensualidades y sin dejar de funcionar cuando se corta internet.</p>
       <p>Trabajamos solo con equipos que usamos y probamos nosotros mismos, todos los días. <strong>Cuéntanos qué necesitas y te orientamos sin compromiso.</strong></p>
+      <div class="about-cred">
+        <span class="ac-nivel">Bronce</span>
+        <span><strong>Instalador certificado SONOFF</strong> · Constitución, Chile</span>
+        <a href="https://planner.sonoff.tech/find-installer" target="_blank" rel="noopener">Verificar en el directorio oficial ↗</a>
+      </div>
     </div>
   </div>
 </section>
@@ -2273,7 +2290,7 @@ footer a:hover { text-decoration: underline; }
 
       <details>
         <summary>¿Qué pasa si algo se echa a perder?</summary>
-        <div class="faq-a">Tienes doble respaldo: <strong>6 meses de garantía sobre nuestro servicio</strong>, y la garantía legal de tienda de cada equipo, que está a tu nombre. Si hay que hacerla valer, te ayudamos con el trámite.</div>
+        <div class="faq-a">Tienes doble respaldo: <strong>6 meses de garantía sobre nuestro servicio</strong>, y la garantía legal de tienda de cada equipo, que está a tu nombre. Si hay que hacerla valer, te ayudamos con el trámite. Además, el <strong>primer mes de ajuste</strong> va incluido: si un horario, una escena o un aviso no calza con tu rutina, lo cambiamos sin costo.</div>
       </details>
 
       <details>
@@ -2347,6 +2364,16 @@ footer a:hover { text-decoration: underline; }
             <option>Red WiFi Mesh</option>
           </select>
         </div>
+      </div>
+      <div style="margin-bottom:12px">
+        <label for="fa-prioridad">Qué te importa más</label>
+        <select id="fa-prioridad" name="prioridad">
+          <option>Todavía no sé</option>
+          <option>Seguridad (sensores, avisos, cámaras)</option>
+          <option>Comodidad (luces y escenas automáticas)</option>
+          <option>Ahorro de energía</option>
+          <option>Controlar la casa cuando no estoy</option>
+        </select>
       </div>
       <div style="margin-bottom:14px">
         <label for="fa-msg">Cuéntanos qué necesitas</label>
