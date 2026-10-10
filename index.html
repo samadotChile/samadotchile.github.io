@@ -1415,7 +1415,7 @@ footer a:hover { text-decoration: underline; }
       <svg class="ic i-cerrar" aria-hidden="true"><use href="#i-equis"/></svg>
     </button>
     <div class="nav-links" id="navLinks">
-      <a href="#kits">Precios</a>
+      <a href="#kits">Packs</a>
       <a href="#dashboard">Dashboard</a>
       <a href="#servicios">Servicios</a>
       <a href="#preguntas">Preguntas</a>
@@ -1441,7 +1441,7 @@ footer a:hover { text-decoration: underline; }
       <p class="lead">Instalamos y configuramos domótica con el cerebro <strong>dentro de tu hogar</strong>: tus luces y automatizaciones siguen funcionando aunque se caiga internet, controlas todo desde una app gratuita y no pagas suscripciones.</p>
       <div class="hero-ctas">
         <a class="btn btn-cta js-wa" href="#contacto"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotiza por WhatsApp</a>
-        <a class="btn btn-outline" href="#kits">Ver precios</a>
+        <a class="btn btn-outline" href="#kits">Ver packs</a>
       </div>
       <p class="hero-plazos">Respuesta el <strong>mismo día hábil</strong> · Propuesta en <strong>72 h</strong> tras la visita · Instalación en <strong>un día</strong></p>
       <div class="chips">
@@ -1820,9 +1820,12 @@ footer a:hover { text-decoration: underline; }
        pack técnico `salto-panel` de productos.json).
   -->
   <div class="wrap">
-    <span class="kicker">Precios</span>
+    <!-- 10-10-2026, instrucción de Hugo: se sacan todos los montos de la web
+         (precio de lanzamiento, normal, equipos y salto al panel). Cada pack
+         queda «A cotizar»; los valores siguen en productos.json y en ESTADO.md. -->
+    <span class="kicker">Packs</span>
     <h2 class="sec-title">Empieza simple y crece cuando quieras</h2>
-    <p class="sec-sub">Nosotros cobramos el servicio; <strong>los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Los valores de equipos son referenciales a agosto de 2026 y los revisamos contigo antes de comprar. Precios de servicio + IVA. <strong>El sistema siempre puede crecer</strong>: agregas actuadores y sensores cuando quieras, mínimo 2 dispositivos por visita.</p>
+    <p class="sec-sub">Nosotros cobramos el servicio; <strong>los equipos los compras tú</strong> —te entregamos la lista— así la boleta y la garantía quedan a tu nombre. Te enviamos una cotización con el servicio y la lista de equipos, con precio cerrado antes de partir. <strong>El sistema siempre puede crecer</strong>: agregas actuadores y sensores cuando quieras, mínimo 2 dispositivos por visita.</p>
     <div class="kit-grid">
 
       <div class="kit featured">
@@ -1840,16 +1843,14 @@ footer a:hover { text-decoration: underline; }
         <div class="k-opciones">
           <div class="k-opcion">
             <div class="k-opcion-nombre">Nube <span>equipo central económico</span></div>
-            <div class="k-oferta">Precio de lanzamiento · normal <s>$65.000</s></div>
-            <div class="k-price"><span class="k-desde">desde</span>$50.000<span class="k-iva"> + IVA</span></div>
-            <div class="k-price-note">valor del servicio · equipos aparte, alrededor de $103.000 que compras tú</div>
+            <div class="k-sin-precio">A cotizar</div>
+            <div class="k-price-note">servicio + lista de equipos que compras tú</div>
             <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Nube"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Nube</a>
           </div>
           <div class="k-opcion">
             <div class="k-opcion-nombre">Local <span>control 100% dentro de tu casa + panel Samadot incluido</span></div>
-            <div class="k-oferta">Precio de lanzamiento · normal <s>$120.000</s></div>
-            <div class="k-price"><span class="k-desde">desde</span>$90.000<span class="k-iva"> + IVA</span></div>
-            <div class="k-price-note">valor del servicio, panel Samadot incluido sin cargo adicional · equipos aparte, alrededor de $324.000 que compras tú</div>
+            <div class="k-sin-precio">A cotizar</div>
+            <div class="k-price-note">servicio con panel Samadot incluido sin cargo adicional + lista de equipos que compras tú</div>
             <a class="btn btn-cta btn-block btn-sm js-wa" href="#contacto" data-kit="Pack de entrada · Local"><svg class="ic" aria-hidden="true"><use href="#i-whatsapp"/></svg> Cotizar Local</a>
           </div>
         </div>
@@ -1868,8 +1869,8 @@ footer a:hover { text-decoration: underline; }
         <div class="k-name"><svg class="ic" aria-hidden="true"><use href="#i-estrella"/></svg> Salto al panel Samadot</div>
         <h3>Para quien partió con Nube</h3>
         <div class="k-tag">"Toda tu casa en una sola pantalla."</div>
-        <div class="k-price"><span class="k-desde">desde</span>$70.000<span class="k-iva"> + IVA</span></div>
-        <div class="k-price-note">instalación del panel · equipo central aparte, desde $173.000 que compras tú</div>
+        <div class="k-sin-precio">A cotizar</div>
+        <div class="k-price-note">instalación del panel + equipo central que compras tú</div>
         <ul>
           <li><span class="d"></span>Pantalla propia con tus piezas, tus modos y tus horarios</li>
           <li><span class="d"></span>Cámaras en la misma pantalla, sin abrir otra app</li>
