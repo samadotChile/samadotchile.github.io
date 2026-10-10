@@ -621,11 +621,6 @@ nav {
 .kit .k-price .k-desde { font-size: 14px; font-weight: 700; color: var(--muted); letter-spacing: 0; margin-right: 5px; }
 .kit .k-price .k-iva { font-size: 13px; font-weight: 700; color: var(--muted); letter-spacing: 0; }
 .kit .k-price-note { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
-/* Precio de lanzamiento (08-10-2026, decisión de Hugo): Nube 50 / normal 65 ·
-   Local 90 / normal 120. El «normal» tiene que llegar a cobrarse de verdad:
-   anunciar un precio de referencia que nunca se cobra choca con la Ley 19.496. */
-.kit .k-oferta { font-size: 12px; font-weight: 700; color: var(--accent-soft); letter-spacing: .3px; margin-bottom: 2px; }
-.kit .k-oferta s { color: var(--muted); font-weight: 600; }
 /* ===== DOS OPCIONES DE HUB DENTRO DEL PACK DE ENTRADA — 18-09-2026 =====
    El pack de entrada se abre en dos equipos centrales (Nube, económico · Local,
    100% local) con precio de servicio propio cada uno. Van dentro de la misma
@@ -1769,55 +1764,17 @@ footer a:hover { text-decoration: underline; }
 </section>
 
 <section class="kits" id="kits">
-  <!-- ===== REESTRUCTURACIÓN 20-08-2026: de tres kits a pack + expansión =====
-       Antes había Kit Básico / Medio / Avanzado, los tres con «Valor a cotizar».
-       Se reemplazan por: Pack de entrada · Crece cuando quieras · El panel Samadot.
-
-       Motivo: el kit más barato pedía $251.950 en equipos antes de cobrar una hora
-       de servicio, y el cuello de botella del negocio no es el producto, son las
-       conversaciones que no empiezan. La entrada baja a ~$112.000 en equipos.
-
-       El id="kits" se MANTIENE a propósito, aunque la sección ya no hable de kits:
-       cambiarlo rompería cualquier enlace #kits que ya esté circulando. Solo
-       cambia la etiqueta visible del menú.
-
-       Los precios de servicio salen de 2-Producto\precios-servicio.html a $20.000
-       la hora: Panel Samadot 3,5 h = $70.000.
-       Los de equipos se consultaron ficha por ficha en mcielectronics.cl el
-       20-08-2026 y van REDONDEADOS: la página no se actualiza cada semana y el
-       stock ya se movió dos veces en trece días. Si se tocan, tocar también
-       3-Clientes\lista-equipos-kits.html, que es la lista fina.
-
-       ── 18-09-2026: EL PACK DE ENTRADA SE ABRE EN NUBE Y LOCAL ────────────
-       Decisión de Hugo: vuelve el Bridge Pro como hub de entrada económico
-       (se había descartado el 20-08 por no tener MQTT/API local/Ethernet — el
-       trade-off se acepta a cambio de una entrada más barata). El pack ahora
-       incluye 3 sensores (antes 1) y dos precios de servicio fijos: $50.000 con
-       Bridge Pro (Nube) · $90.000 con Bridge Max (Local). Ambos "desde": varían
-       con la zona. Las dos opciones van DENTRO de la tarjeta destacada
-       (.k-opciones), no como cuarta tarjeta, para no romper la regla de grilla
-       3-o-1.
-
-       ── 18/19-09-2026: PRECIO PLANO POR UNIDAD + IVA PAREJO ────────────────
-       Instrucción de Hugo: todo precio de servicio se muestra "+ IVA" (antes
-       solo se mencionaba si el cliente pedía factura — sigue sin resolver si
-       Samadot puede emitir factura sin romper la elegibilidad Sercotec, ver
-       ESTADO.md, esto es solo presentación). Los adicionales pasan de hora a
-       precio plano: actuador (punto de luz o enchufe) $10.000 + IVA, sensor
-       $7.000 + IVA. Mínimo 2 dispositivos por instalación.
-
-       ── 19-09-2026: EL PANEL SAMADOT SE PLIEGA DENTRO DEL PACK LOCAL ───────
-       Instrucción de Hugo: deja de venderse como complemento genérico para
-       cualquiera. Ahora viene incluido de fábrica en el Pack de entrada ·
-       Local, SIN sumar los $70.000 de instalación de panel aparte — el
-       servicio del Local queda fijo en $90.000 (equipos ~$324.000).
-       Corrección del mismo día: la primera versión sí sumaba los $70.000
-       encima (daba $160.000); `incluye.panel` en productos.json + el ajuste
-       en calculo.js lo dejaron en $90.000, ver ESTADO.md. La cuarta tarjeta
-       pasa de "El panel Samadot" a "Salto al panel Samadot": queda solo para
-       quien partió con el pack Nube y quiere sumarlo después (sigue en
-       $70.000 de servicio + ~$173.000 en equipos, sin cambios — es el mismo
-       pack técnico `salto-panel` de productos.json).
+  <!-- ===== Historia de la sección (el detalle vive en ESTADO.md) =====
+       20-08-2026: de tres kits a pack de entrada + expansión. El id="kits" se
+       MANTIENE a propósito aunque la sección ya no hable de kits: cambiarlo
+       rompería cualquier enlace #kits que ya esté circulando.
+       18-09-2026: el pack de entrada se abre en Nube y Local, las dos opciones
+       DENTRO de la tarjeta destacada (.k-opciones), no como cuarta tarjeta,
+       para no romper la regla de grilla 3-o-1.
+       19-09-2026: el panel Samadot viene incluido en Local; «Salto al panel»
+       queda solo para quien partió con Nube.
+       10-10-2026: sin montos en la web ni en su código fuente (Hugo). Los
+       valores viven en productos.json, que no se publica.
   -->
   <div class="wrap">
     <!-- 10-10-2026, instrucción de Hugo: se sacan todos los montos de la web
