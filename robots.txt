@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://samadotchile.github.io/sitemap.xml
+Sitemap: https://samadot.cl/sitemap.xml
