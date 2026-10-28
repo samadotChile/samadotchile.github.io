@@ -2368,15 +2368,11 @@ footer a:hover { text-decoration: underline; }
       <a href="mailto:samadotchile@gmail.com">samadotchile@gmail.com</a> ·
       <a href="https://www.instagram.com/samadotchile/" target="_blank" rel="noopener">@samadotchile</a>
     </div>
-    <!-- ===== HUECO PARA HORARIO Y TIEMPO DE RESPUESTA (bloque C6) =====
-         Mándame los dos datos y descomento esta línea tal cual. No la lleno yo
-         porque un horario inventado es una promesa que después hay que cumplir.
-
+    <!-- Horario confirmado por Hugo el 27-10-2026: el mismo de la política de
+         garantía. Si cambia, cambiarlo también en el JSON-LD de más abajo. -->
     <div class="f-linea">
-      Atención de LUNES A VIERNES, HH:MM a HH:MM · sábados HH:MM a HH:MM<br>
-      Respondemos WhatsApp en menos de PLAZO en horario de atención
+      Atención de lunes a sábado, de 9:00 a 20:00 · Respondemos WhatsApp el mismo día hábil
     </div>
-                                                                            -->
     <div class="f-linea">© 2026 Samadot. Todos los derechos reservados.</div>
   </div>
 </footer>
@@ -2407,12 +2403,18 @@ footer a:hover { text-decoration: underline; }
     { "@type": "City", "name": "Constitución" },
     { "@type": "AdministrativeArea", "name": "Región del Maule" }
   ],
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "opens": "09:00",
+    "closes": "20:00"
+  }],
   "knowsLanguage": "es-CL",
   "sameAs": ["https://www.instagram.com/samadotchile/"]
 }
 </script>
 
-<!-- FAQPage: las 10 preguntas que ya están visibles en la sección Preguntas.
+<!-- FAQPage: las 13 preguntas que ya están visibles en la sección Preguntas.
      Es lo que puede hacer que Google muestre las preguntas desplegables debajo
      del resultado, y no cuesta un byte de carga porque no se renderiza.
      REGLA: el texto de acá tiene que ser el mismo que se ve en pantalla. Si se
