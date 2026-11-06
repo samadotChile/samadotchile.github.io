@@ -3,28 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Samadot — Casa inteligente sin mensualidades en el Maule</title>
-<meta name="description" content="Domótica para el hogar en Talca, Constitución y la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
+<title>Samadot — Casa inteligente sin mensualidades en la Región del Maule</title>
+<meta name="description" content="Domótica para el hogar en la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
 <link rel="canonical" href="https://samadot.cl/">
 <meta name="theme-color" content="#0B1120">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Samadot">
 <meta property="og:locale" content="es_CL">
 <meta property="og:url" content="https://samadot.cl/">
-<meta property="og:title" content="Samadot — Casa inteligente sin mensualidades en el Maule">
-<meta property="og:description" content="Domótica para el hogar en Talca, Constitución y la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
+<meta property="og:title" content="Samadot — Casa inteligente sin mensualidades en la Región del Maule">
+<meta property="og:description" content="Domótica para el hogar en la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
 <meta property="og:image" content="https://samadot.cl/og-2026-08.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Samadot — casa inteligente en la Región del Maule">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Samadot — Casa inteligente sin mensualidades en el Maule">
-<meta name="twitter:description" content="Domótica para el hogar en Talca, Constitución y la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
+<meta name="twitter:title" content="Samadot — Casa inteligente sin mensualidades en la Región del Maule">
+<meta name="twitter:description" content="Domótica para el hogar en la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.">
 <meta name="twitter:image" content="https://samadot.cl/og-2026-08.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%230F172A'/%3E%3Ccircle cx='16' cy='19' r='2.6' fill='%23E07B39'/%3E%3Cpath d='M9 15 Q16 8 23 15 M12 18 Q16 14 20 18' stroke='%23E07B39' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800&family=Red+Hat+Text:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 /* Propuesta v2: contenido para público no técnico + carrusel, animaciones y simulador.
    Colores de marca tomados del Panel Samadot (azul noche + cobre). */
@@ -242,9 +242,9 @@ nav .wrap { display: flex; align-items: center; justify-content: space-between; 
 .marco.cel .bloque { order: var(--o); }
 .bloque { background: var(--s); border-radius: 16px; padding: 14px; transition: box-shadow .3s; }
 .bloque.foco { box-shadow: inset 0 0 0 2px var(--a); }
-.bloque h5 { margin: 0 0 10px; font: 700 14px 'Sora', sans-serif; color: var(--t); display: flex; align-items: center; gap: 8px; }
-.bloque h5 svg { width: 16px; height: 16px; color: var(--a); }
-.bloque h5 small { margin-left: auto; font: 500 11px 'Inter', sans-serif; color: var(--t3); }
+.bloque h3.blq { margin: 0 0 10px; font: 700 14px 'Sora', sans-serif; color: var(--t); display: flex; align-items: center; gap: 8px; }
+.bloque h3.blq svg { width: 16px; height: 16px; color: var(--a); }
+.bloque h3.blq small { margin-left: auto; font: 500 11px 'Inter', sans-serif; color: var(--t3); }
 .clima { display: flex; align-items: center; gap: 14px; }
 .clima .grados { font: 700 34px/1 'Sora', sans-serif; }
 .clima small { color: var(--t2); font-size: 12px; display: block; }
@@ -390,6 +390,79 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .aparece { opacity: 1; transform: none; }
 }
+
+/* ===== Arreglos de la auditoría 02-11 (comunes a las tres propuestas) ===== */
+/* 1. Todo visible al cargar: la aparición queda como un leve desplazamiento, nunca invisible */
+.aparece, .aparece.visto { opacity: 1 !important; }
+/* 3. WhatsApp legible: verde de marca con letra oscura (7,4:1) */
+.btn-wa, .wa-flota { background: #25D366; color: #0B2E17; }
+.btn-wa { box-shadow: 0 8px 20px rgba(37,211,102,.28); }
+/* 5. El botón flotante aparece después de la portada (lo maneja el script de abajo) */
+.wa-flota { transition: transform .25s, opacity .25s; }
+.wa-flota.oculto { opacity: 0; transform: scale(.6); pointer-events: none; }
+/* 11. Foco visible con teclado */
+:focus-visible { outline: 3px solid var(--foco, #E8894A); outline-offset: 3px; border-radius: 6px; }
+
+/* ===== Propuesta C · Hogar sereno =====
+   Una casa tranquila: blanco con franjas gris azulado muy suaves, más aire y menos cajas.
+   Las tarjetas se vuelven listas separadas por líneas finas. Red Hat Display y Red Hat Text
+   son una misma familia: amable y profesional a la vez. */
+:root {
+  --crema: #FFFFFF;
+  --blanco: #F1F4F8;     /* franjas alternas */
+  --ink: #1A2233; --ink-2: #4F5B70;
+  --linea: #DDE3EC;
+  --cobre: #B4561C; --cobre-claro: #E07B39;
+  --cobre-suave: #F7ECE4;
+  --foco: #B4561C;
+  --r: 10px;
+}
+body { font-family: 'Red Hat Text', 'Segoe UI', system-ui, sans-serif; font-size: 18px; }
+h1, h2, h3, .marca { font-family: 'Red Hat Display', 'Segoe UI', sans-serif; letter-spacing: -.01em; text-wrap: balance; }
+h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; }
+section { padding: 96px 0; }
+section:not(.hero):not(.contacto) .centro { text-align: left; }
+section:not(.hero):not(.contacto) .centro .bajada { margin-left: 0; }
+.kicker { color: var(--cobre); letter-spacing: .14em; font-weight: 700; }
+.card, .razon { background: transparent; box-shadow: none; border-radius: 0; border-top: 1px solid var(--linea); padding: 24px 0 8px; }
+.card:hover { transform: none; box-shadow: none; }
+.card .ico { background: transparent; color: var(--cobre); width: auto; height: auto; justify-content: start; }
+.slide { box-shadow: none; border: 1px solid var(--linea); }
+.sim-sec, .faq { background: var(--blanco); }
+.facil { background: var(--crema); }
+.acciones { background: var(--crema); border: 1px solid var(--linea); }
+.faq summary::after { background: transparent; border: 1px solid var(--linea); color: var(--cobre); }
+/* la v2 escribe Sora directo en algunos lugares */
+.pasos li::before, .tel .hora, .eslabon h3 { font-family: 'Red Hat Display', 'Segoe UI', sans-serif; }
+
+
+/* ===== Contenido v3 (02-11): video, servicios adicionales, quiénes somos ===== */
+.video-sec { background: var(--blanco); }
+.video-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.video-txt .bajada { margin-bottom: 26px; }
+.video-marco { justify-self: center; width: min(100%, 340px); border-radius: 28px; overflow: hidden;
+  background: var(--noche); box-shadow: 0 24px 50px rgba(11,17,32,.22); aspect-ratio: 9 / 16; }
+.video-marco video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.adicionales { margin-top: 40px; border-top: 1px solid var(--linea); padding-top: 28px; }
+.adicionales h3 { font-size: 22px; margin-bottom: 14px; }
+.adicionales ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 4px 32px; }
+.adicionales li { padding: 12px 0; border-bottom: 1px solid var(--linea); }
+.adicionales li b { display: block; color: var(--ink); }
+.adicionales li span { color: var(--ink-2); font-size: 16px; }
+.adicionales p { margin-top: 16px; color: var(--ink-2); font-size: 16px; }
+.adicionales p a { color: var(--cobre); font-weight: 700; }
+.razones { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0 32px; }
+.razon { display: grid; grid-template-columns: 30px 1fr; column-gap: 14px; align-items: start; padding: 18px 0 6px; }
+.razon .chk { width: 30px; height: 30px; font-size: 16px; margin: 2px 0 0; }
+.razon h3 { font-size: 19px; margin: 0; }
+.razon .mas { grid-column: 2; margin-top: 6px; padding-top: 0; border-top: 0; }
+.quienes-grid { display: grid; grid-template-columns: 160px 1fr; gap: 40px; align-items: center; }
+.quienes-sello { color: var(--cobre); width: 140px; }
+.quienes .bajada { margin-bottom: 0; }
+@media (max-width: 760px) {
+  .video-grid, .quienes-grid { grid-template-columns: 1fr; gap: 28px; }
+  .quienes-sello { width: 96px; }
+}
 </style>
 </head>
 <body>
@@ -418,7 +491,7 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
       <a href="#simulador">Pruébalo</a>
       <a href="#como">Cómo trabajamos</a>
       <a href="#preguntas">Preguntas</a>
-      <a class="btn btn-wa" href="https://wa.me/56963365302">WhatsApp</a>
+      <a class="btn btn-wa" href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20tengo%20una%20consulta.">WhatsApp</a>
     </div>
   </div>
 </nav>
@@ -427,11 +500,11 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
 <section class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <span class="kicker zona">Talca, Constitución y toda la Región del Maule</span>
-      <h1>Entérate de lo que pasa en tu casa, <em>estés donde estés</em></h1>
-      <p class="lead">Instalamos luces que se prenden solas, sensores que te avisan al celular y cámaras para mirar tu casa. <b>Pagas una sola vez: sin mensualidades y sin contrato.</b></p>
+      <span class="kicker zona">Toda la Región del Maule</span>
+      <h1>Tu casa inteligente, <em>sin mensualidades</em></h1>
+      <p class="lead">Configúrala a tu gusto: luces que se prenden solas, rutinas a tu horario y todo lo manejas desde el celular. Y cuando no estás, te enteras de lo que pasa en tu casa. <b>Pagas una sola vez y sin contrato.</b></p>
       <div class="ctas">
-        <a class="btn btn-wa" href="https://wa.me/56963365302">
+        <a class="btn btn-wa" href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20vi%20la%20p%C3%A1gina%20y%20quiero%20cotizar%20para%20mi%20casa.">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3Z"/></svg>
           Pregúntanos por WhatsApp
         </a>
@@ -454,6 +527,27 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
           <div class="notifs" id="heroNotifs"></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 1b. VIDEO: UN DÍA CON SAMADOT (06-11: rehecho, domótica primero, sin ubicación) ============ -->
+<section class="video-sec" id="video">
+  <div class="wrap video-grid">
+    <div class="video-txt">
+      <span class="kicker">En un minuto y medio</span>
+      <h2>Así es un día con Samadot</h2>
+      <p class="bajada">La luz que se prende sola en la mañana, el aviso de una fuga en la tarde, la entrada iluminada al atardecer y todo apagado a la hora de dormir.</p>
+      <a class="btn btn-wa" href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20vi%20el%20video%20y%20quiero%20cotizar%20para%20mi%20casa.">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3Z"/></svg>
+        Quiero esto en mi casa
+      </a>
+    </div>
+    <div class="video-marco">
+      <video controls playsinline preload="none" poster="video/samadot-un-dia.jpg" aria-label="Video: un día con Samadot">
+        <source src="video/samadot-un-dia.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
@@ -491,8 +585,8 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
           </div>
           <div class="txt">
             <span class="prob">El problema</span>
-            <h3>Saliste y no sabes si dejaste la luz prendida.</h3>
-            <p class="sol">La miras y la apagas desde el celular.</p>
+            <h3>Te acostaste y quedó una luz prendida al otro lado de la casa.</h3>
+            <p class="sol">La apagas desde el celular, sin levantarte.</p>
           </div>
         </article>
 
@@ -545,6 +639,26 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
         <article class="slide" aria-label="4 de 5">
           <div class="ilus">
             <svg viewBox="0 0 300 220" aria-hidden="true">
+              <rect x="60" y="70" width="150" height="130" rx="8" fill="#22304F"/>
+              <path d="M50 80 L135 24 L220 80" fill="none" stroke="#2F416A" stroke-width="10" stroke-linejoin="round"/>
+              <rect x="80" y="100" width="40" height="34" rx="4" fill="#FFC27A" class="parpadea"/>
+              <rect x="150" y="100" width="40" height="34" rx="4" fill="#FFC27A" class="brilla"/>
+              <rect x="118" y="150" width="34" height="50" rx="4" fill="#33466F"/>
+              <rect x="226" y="140" width="48" height="60" rx="8" fill="#E8894A"/>
+              <rect x="240" y="128" width="20" height="14" rx="4" fill="none" stroke="#E8894A" stroke-width="4"/>
+              <path d="M232 160 H268" stroke="#2A1608" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="txt">
+            <span class="prob">El problema</span>
+            <h3>Sales de vacaciones y la casa queda sola.</h3>
+            <p class="sol">Las luces se prenden y apagan a ciertas horas, como si hubiera alguien.</p>
+          </div>
+        </article>
+
+        <article class="slide" aria-label="5 de 5">
+          <div class="ilus">
+            <svg viewBox="0 0 300 220" aria-hidden="true">
               <rect x="50" y="30" width="110" height="170" rx="6" fill="#22304F"/>
               <rect x="62" y="42" width="86" height="158" rx="4" fill="#33466F"/>
               <circle cx="136" cy="124" r="5" fill="#E8894A"/>
@@ -562,28 +676,8 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
           </div>
           <div class="txt">
             <span class="prob">El problema</span>
-            <h3>Quieres saber si alguien entró.</h3>
-            <p class="sol">Te avisa si se abre una puerta o hay movimiento, y puedes mirar la cámara.</p>
-          </div>
-        </article>
-
-        <article class="slide" aria-label="5 de 5">
-          <div class="ilus">
-            <svg viewBox="0 0 300 220" aria-hidden="true">
-              <rect x="60" y="70" width="150" height="130" rx="8" fill="#22304F"/>
-              <path d="M50 80 L135 24 L220 80" fill="none" stroke="#2F416A" stroke-width="10" stroke-linejoin="round"/>
-              <rect x="80" y="100" width="40" height="34" rx="4" fill="#FFC27A" class="parpadea"/>
-              <rect x="150" y="100" width="40" height="34" rx="4" fill="#FFC27A" class="brilla"/>
-              <rect x="118" y="150" width="34" height="50" rx="4" fill="#33466F"/>
-              <rect x="226" y="140" width="48" height="60" rx="8" fill="#E8894A"/>
-              <rect x="240" y="128" width="20" height="14" rx="4" fill="none" stroke="#E8894A" stroke-width="4"/>
-              <path d="M232 160 H268" stroke="#2A1608" stroke-width="3"/>
-            </svg>
-          </div>
-          <div class="txt">
-            <span class="prob">El problema</span>
-            <h3>Sales de vacaciones y la casa queda sola.</h3>
-            <p class="sol">Las luces se prenden y apagan a ciertas horas, como si hubiera alguien.</p>
+            <h3>Quieres saber si alguien llegó a tu casa.</h3>
+            <p class="sol">Si se abre la puerta, te llega un aviso al celular.</p>
           </div>
         </article>
 
@@ -603,25 +697,25 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     <div class="centro aparece">
       <span class="kicker">Cómo funciona</span>
       <h2>Así de simple</h2>
-      <p class="bajada">Un ejemplo: alguien abre la puerta de tu casa.</p>
+      <p class="bajada">Un ejemplo: te levantas de noche y pasas por el pasillo.</p>
     </div>
     <div class="cadena" id="cadena">
       <div class="eslabon" data-i="0">
-        <div class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="11" height="18" rx="1"/><circle cx="13" cy="12" r=".8" fill="currentColor"/><path d="M19 8v8"/></svg></div>
+        <div class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M7.8 7.8a6 6 0 0 0 0 8.4M16.2 7.8a6 6 0 0 1 0 8.4M5 5a10 10 0 0 0 0 14M19 5a10 10 0 0 1 0 14"/></svg></div>
         <h3>1. El sensor lo nota</h3>
-        <p>Un aparato chico pegado en la puerta detecta que se abrió.</p>
+        <p>Un aparato chico en la pared nota que pasaste.</p>
       </div>
       <div class="cable"><i></i></div>
       <div class="eslabon" data-i="1">
         <div class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><rect x="9" y="13" width="6" height="5" rx="1"/></svg></div>
         <h3>2. Tu casa lo procesa</h3>
-        <p>Un dispositivo que queda en tu casa decide qué hacer: avisar, prender una luz.</p>
+        <p>Un dispositivo que queda en tu casa decide qué hacer: prender una luz, avisarte.</p>
       </div>
       <div class="cable"><i></i></div>
       <div class="eslabon" data-i="2">
-        <div class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18h4"/><path d="M9 7h6M9 10h4"/></svg></div>
-        <h3>3. Te llega el aviso</h3>
-        <p>A tu celular y al de las personas que tú elijas, en segundos.</p>
+        <div class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg></div>
+        <h3>3. La luz se prende sola</h3>
+        <p>Sin buscar el interruptor. Y si algo requiere tu atención, te llega el aviso al celular.</p>
       </div>
     </div>
     <p class="nota-flujo aparece"><b>Todo pasa dentro de tu casa.</b> Por eso no hay mensualidad y las luces siguen funcionando aunque se caiga internet.</p>
@@ -671,9 +765,16 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
         </details>
       </div>
     </div>
-    <div class="extra aparece">
-      <div><b>¿El WiFi no llega a toda la casa?</b> Te orientamos para mejorarlo.</div>
-      <div><b>¿Ya compraste aparatos “inteligentes”?</b> Te ayudamos a ver si se pueden sumar.</div>
+    <div class="adicionales">
+      <h3>También te ayudamos con</h3>
+      <ul>
+        <li><b>Asesoría de redes WiFi</b><span>Si la señal no llega a toda la casa, te orientamos para mejorarla.</span></li>
+        <li><b>Estudio de compatibilidad</b><span>¿Ya compraste aparatos inteligentes? Vemos cuáles se pueden sumar.</span></li>
+        <li><b>Tu panel desde fuera de casa</b><span>Mira y maneja tu casa desde cualquier lugar, de forma segura.</span></li>
+        <li><b>Cámaras que graban</b><span>Un equipo de grabación que queda dentro de tu casa.</span></li>
+        <li><b>Mantención anual</b><span>Revisamos equipos, pilas y automatizaciones una vez al año.</span></li>
+      </ul>
+      <p>Se cotizan aparte. <a href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20quiero%20saber%20de%20los%20servicios%20adicionales.">Pregúntanos por WhatsApp</a></p>
     </div>
   </div>
 </section>
@@ -720,12 +821,12 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
             <div class="app-main" id="appMain">
               <div class="col">
                 <div class="bloque" data-sec="clima" style="--o:1">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Clima<small id="appHora">21:40</small></h5>
-                  <div class="clima"><div class="grados">14°</div><div><b>Despejado</b><small>Constitución</small></div></div>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/></svg>Clima<small id="appHora">21:40</small></h3>
+                  <div class="clima"><div class="grados">14°</div><div><b>Despejado</b><small>Región del Maule</small></div></div>
                   <div class="clima-det"><div>72%<span>Humedad</span></div><div>9 km/h<span>Viento</span></div><div>13°<span>Sensación</span></div></div>
                 </div>
                 <div class="bloque" data-sec="camaras" style="--o:3">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h12v10H3zM15 10l6-3v10l-6-3"/></svg>Cámaras</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h12v10H3zM15 10l6-3v10l-6-3"/></svg>Cámaras</h3>
                   <div class="camara" id="camara">
                     <svg class="escena" viewBox="0 0 320 180" aria-hidden="true">
                       <rect width="320" height="180" fill="#2A3347"/>
@@ -742,25 +843,25 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
                   </div>
                 </div>
                 <div class="bloque" data-sec="historial" style="--o:7">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Historial</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Historial</h3>
                   <div class="historial" id="historial"><p class="vacio">Sin novedades. Usa los botones para simular algo.</p></div>
                 </div>
               </div>
               <div class="col">
                 <div class="bloque" data-sec="luces" style="--o:2">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg>Dispositivos</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3Z"/></svg>Dispositivos</h3>
                   <div class="luces" id="luces"></div>
                 </div>
                 <div class="bloque" data-sec="temp" style="--o:4">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0Z"/></svg>Temperatura</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0Z"/></svg>Temperatura</h3>
                   <div class="sensores" id="temps"></div>
                 </div>
                 <div class="bloque" data-sec="mov" style="--o:5">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="13" cy="4" r="2"/><path d="M9 21l2-6 3 3v3M7 12l3-4 4 1 3 4"/></svg>Movimiento</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="13" cy="4" r="2"/><path d="M9 21l2-6 3 3v3M7 12l3-4 4 1 3 4"/></svg>Movimiento</h3>
                   <div class="sensores" id="movs"></div>
                 </div>
                 <div class="bloque" data-sec="agua" style="--o:6">
-                  <h5><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c3 4 6 7.2 6 10.5a6 6 0 0 1-12 0C6 10.2 9 7 12 3Z"/></svg>Agua</h5>
+                  <h3 class="blq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c3 4 6 7.2 6 10.5a6 6 0 0 1-12 0C6 10.2 9 7 12 3Z"/></svg>Agua</h3>
                   <div class="sensores" id="aguas"></div>
                 </div>
               </div>
@@ -773,12 +874,12 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
       <div class="acciones">
         <h3>Simula lo que pasa en tu casa</h3>
         <p>Toca un botón y mira cómo responde el panel.</p>
-        <button data-sim="puerta"><span class="e">🚪</span>Alguien abre la puerta</button>
+        <button data-sim="noche"><span class="e">🌆</span>Está oscureciendo</button>
         <button data-sim="agua"><span class="e">💧</span>Hay una fuga de agua</button>
-        <button data-sim="noche"><span class="e">🌙</span>Está oscureciendo</button>
         <button data-sim="corte"><span class="e">⚡</span>Se corta la luz</button>
+        <button data-sim="puerta"><span class="e">🚪</span>Alguien abre la puerta</button>
         <button data-sim="reset"><span class="e">↺</span>Volver a empezar</button>
-        <p class="pista-txt">Prueba poner el modo <b>Fuera</b> y luego abrir la puerta.</p>
+        <p class="pista-txt">Toca <b>Está oscureciendo</b> y mira cómo se prende sola la luz de la entrada.</p>
       </div>
     </div>
     <p class="sim-nota">Simulación con fines ilustrativos. Lo que ves en tu panel depende de los equipos que instales.</p>
@@ -791,7 +892,7 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     <div class="aparece">
       <span class="kicker">Por qué Samadot</span>
       <h2>Pagas una vez y es tuyo</h2>
-      <p class="bajada">Sin la letra chica de los contratos de alarma.</p>
+      <p class="bajada">Sin letra chica y sin tener que saber de tecnología.</p>
     </div>
     <div class="razones">
       <div class="razon aparece"><div class="chk">✓</div><h3>Sin mensualidades</h3>
@@ -800,40 +901,42 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
         <details class="mas"><summary>Ver más</summary><p>No firmas permanencia. No hay multa por salir, porque no hay de qué salir.</p></details></div>
       <div class="razon aparece d2"><div class="chk">✓</div><h3>Sigue funcionando si se cae internet</h3>
         <details class="mas"><summary>Ver más</summary><p>Las luces y los horarios funcionan igual. Internet solo hace falta para que te lleguen los avisos al celular.</p></details></div>
-    </div>
-    <div class="control aparece">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.8.4 5 2.7 5 5.8"/></svg></div>
-      <div><b>Tú decides quién se entera.</b><p>Sin guardias ni centrales de monitoreo: cuando pasa algo, el aviso llega directo a tu celular y al de las personas que tú elijas.</p></div>
+      <div class="razon aparece"><div class="chk">✓</div><h3>Los interruptores de siempre siguen funcionando</h3>
+        <details class="mas"><summary>Ver más</summary><p>Quien no quiera usar el celular, no tiene que aprender nada: la casa se usa como siempre.</p></details></div>
+      <div class="razon aparece d1"><div class="chk">✓</div><h3>Te enseñamos en tu casa</h3>
+        <details class="mas"><summary>Ver más</summary><p>A ti y a todos los que viven contigo, con calma y las veces que haga falta.</p></details></div>
+      <div class="razon aparece d2"><div class="chk">✓</div><h3>Dudas por WhatsApp, sin costo</h3>
+        <details class="mas"><summary>Ver más</summary><p>Si algo no te queda claro, nos escribes y te respondemos el mismo día hábil.</p></details></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 7. FÁCIL DE USAR ============ -->
-<section class="facil">
-  <div class="wrap">
-    <div class="centro aparece">
-      <span class="kicker">Fácil de usar</span>
-      <h2>No necesitas saber de tecnología</h2>
+<!-- ============ 7. QUIÉNES SOMOS ============ -->
+<section class="quienes" id="quienes">
+  <div class="wrap quienes-grid">
+    <div class="quienes-sello" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2"/><path d="M60 26 L92 52 V92 H28 V52 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"/><circle cx="60" cy="70" r="7" fill="currentColor"/><path d="M45 58 Q60 44 75 58" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
     </div>
-    <div class="facil-grid">
-      <div class="facil-item aparece">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="6" y="3" width="12" height="18" rx="2"/><rect x="9.5" y="7" width="5" height="10" rx="1.5"/><path d="M12 9v3"/></svg></div>
-        <h3>Los interruptores de siempre siguen funcionando</h3>
-        <p>Quien no quiera usar el celular, no tiene que aprender nada.</p>
-      </div>
-      <div class="facil-item aparece d1">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="13" r="2"/><path d="M9 19c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg></div>
-        <h3>Te enseñamos en tu casa</h3>
-        <p>A ti y a todos los que viven contigo.</p>
-      </div>
-      <div class="facil-item aparece d2">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12Z"/><path d="M9 10h6M9 13.5h4"/></svg></div>
-        <h3>¿Te surge una duda?</h3>
-        <p>Nos escribes por WhatsApp, sin costo.</p>
-      </div>
+    <div>
+      <span class="kicker">Quiénes somos</span>
+      <h2>Somos de la Región del Maule</h2>
+      <p class="bajada">Samadot es un emprendimiento local. La misma persona que te responde por WhatsApp es la que va a tu casa, instala y te enseña a usarlo. Sin call center ni intermediarios.</p>
+      <!-- FOTO PENDIENTE: cuando haya foto de la instalación o de quien atiende, va aquí (y se
+           cambia el sello de la izquierda por la foto). -->
     </div>
   </div>
 </section>
+
+<!-- TESTIMONIOS (listo para cuando existan; no inventar ninguno). Para activarlo, quitar los
+     comentarios y poner el texto real con permiso del cliente.
+<section class="testimonios">
+  <div class="wrap">
+    <span class="kicker">Lo que dicen</span>
+    <h2>Casas que ya usan Samadot</h2>
+    <blockquote><p>«…»</p><cite>Nombre, comuna</cite></blockquote>
+  </div>
+</section>
+-->
 
 <!-- ============ 8. CÓMO TRABAJAMOS ============ -->
 <section id="como">
@@ -862,15 +965,17 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     </div>
     <div class="faq-lista">
       <details><summary>¿Cuánto cuesta?</summary><p>Depende de tu casa y de lo que quieras. La cotización es gratis y te damos un precio cerrado antes de partir. Si hace falta ir a tu casa, el valor de la visita lo conversamos antes.</p></details>
+      <details><summary>¿Qué zonas atienden?</summary><p>Toda la Región del Maule. El traslado va incluido en la cotización, para que sepas el total antes.</p></details>
+      <details><summary>¿Cuánto demora la instalación?</summary><p>Una casa normal queda lista en un día. Desde que nos escribes, en 3 días tienes la propuesta, y la instalación se agenda según cuándo estén los equipos.</p></details>
       <details><summary>¿Quién compra los equipos?</summary><p>Tú. Los equipos los pagas tú y son tuyos: te damos la lista exacta y, si prefieres, te ayudamos con la compra. Nosotros solo cobramos el servicio, sin arriendos ni contratos.</p></details>
       <details><summary>¿Tengo que pagar algo todos los meses?</summary><p>No. Pagas una vez y listo.</p></details>
       <details><summary>¿Necesito internet?</summary><p>Para lo de todos los días, no: luces y horarios funcionan igual. Internet solo hace falta para que te lleguen los avisos al celular.</p></details>
-      <details><summary>¿Qué pasa si se corta la luz?</summary><p>Cuando vuelve, todo se prende solo y queda como estaba. Si agregas una batería de respaldo, además te avisa del corte.</p></details>
-      <details><summary>¿Es una alarma?</summary><p>No. No hay guardias ni central de monitoreo. Los avisos te llegan a ti y a quien tú elijas. Si necesitas vigilancia las 24 horas, lo indicado es una alarma con monitoreo.</p></details>
+      <details><summary>¿Qué pasa si se corta la luz?</summary><p>Cuando vuelve, el sistema se reconecta solo. Con una batería de respaldo, además te avisa del corte y de cuando vuelve.</p></details>
       <details><summary>¿Lo podrá usar alguien que casi no usa el celular?</summary><p>Sí. Los interruptores siguen funcionando como siempre, así que puede seguir usando la casa como lo hace hoy. Y le enseñamos a usar lo demás con calma.</p></details>
       <details><summary>¿Hay que romper muros o hacer obras?</summary><p>No. Todo funciona sin cables nuevos.</p></details>
       <details><summary>¿Sirve si arriendo?</summary><p>Sí. No hay obras, y si te cambias, los equipos se sacan y te los llevas.</p></details>
       <details><summary>¿Y después de los 6 meses de garantía?</summary><p>Todo sigue funcionando igual y sin pagar nada. Las dudas por WhatsApp siguen sin costo. Solo se cobra una visita por una falla que no venga de nuestra instalación, y te decimos el precio antes.</p></details>
+      <details><summary>¿Es una alarma?</summary><p>No, es domótica: tu casa automatizada para el día a día. Además te avisa al celular, a ti y a quien tú elijas, si se abre una puerta o hay movimiento. No hay guardias ni central de monitoreo; si necesitas vigilancia las 24 horas, lo indicado es una alarma con monitoreo.</p></details>
     </div>
   </div>
 </section>
@@ -881,7 +986,7 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     <h2 class="aparece">¿Tienes dudas? Pregúntanos sin compromiso</h2>
     <p class="bajada aparece">Cuéntanos de tu casa y te orientamos gratis.</p>
     <div class="ctas aparece">
-      <a class="btn btn-wa" href="https://wa.me/56963365302">Escribir por WhatsApp</a>
+      <a class="btn btn-wa" href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20tengo%20una%20duda.">Escribir por WhatsApp</a>
       <a class="btn btn-sec" href="tel:+56963365302">Llamar al +56 9 6336 5302</a>
     </div>
     <div class="datos">
@@ -891,9 +996,9 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     </div>
   </div>
 </section>
-<footer>© 2026 Samadot · Domótica en Talca, Constitución y la Región del Maule</footer>
+<footer>© 2026 Samadot · Domótica en la Región del Maule</footer>
 
-<a class="wa-flota" href="https://wa.me/56963365302" aria-label="Escribir por WhatsApp">
+<a class="wa-flota" href="https://wa.me/56963365302?text=Hola%20Samadot%2C%20vi%20la%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." aria-label="Escribir por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.5-.3Z"/></svg>
 </a>
 
@@ -919,10 +1024,10 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
 
   /* ---- portada: avisos que van llegando ---- */
   var HERO = [
-    { ic: '🚪', t: 'Se abrió la puerta principal', s: 'Samadot · ahora' },
-    { ic: '🔌', t: 'Se cortó la luz en la casa', s: 'Samadot · ahora' },
+    { ic: '💡', t: 'Luz de la entrada encendida', s: 'Se prendió sola al oscurecer' },
+    { ic: '🌙', t: 'Luces del living apagadas', s: 'Según tu horario de las 23:00' },
     { ic: '💧', t: 'Fuga de agua en la cocina', s: 'Samadot · ahora' },
-    { ic: '📹', t: 'Movimiento en el patio', s: 'Toca para ver la cámara' }
+    { ic: '🔌', t: 'Se cortó la luz en la casa', s: 'Samadot · ahora' }
   ];
   var hi = 0, notifs = $('#heroNotifs');
   function heroPaso() {
@@ -1128,13 +1233,22 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
   inicial(); pintar();
 })();
 </script>
+
+<script>
+/* Botón flotante de WhatsApp: oculto mientras se ve la portada, que ya tiene sus botones */
+(function () {
+  var f = document.querySelector('.wa-flota'), h = document.querySelector('.hero');
+  if (!f || !h || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function (e) { f.classList.toggle('oculto', e[0].isIntersecting); }, { threshold: 0.25 }).observe(h);
+})();
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Samadot",
   "alternateName": "Samadot Domótica",
-  "description": "Domótica para el hogar en Talca, Constitución y la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.",
+  "description": "Domótica para el hogar en la Región del Maule. Luces que se prenden solas, sensores que te avisan al celular y cámaras sin mensualidad. Pagas una vez, sin contrato.",
   "url": "https://samadot.cl/",
   "image": "https://samadot.cl/og-2026-08.png",
   "logo": "https://samadot.cl/og-2026-08.png",
@@ -1147,14 +1261,6 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     "addressCountry": "CL"
   },
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Talca"
-    },
-    {
-      "@type": "City",
-      "name": "Constitución"
-    },
     {
       "@type": "AdministrativeArea",
       "name": "Región del Maule"
@@ -1196,6 +1302,22 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
     },
     {
       "@type": "Question",
+      "name": "¿Qué zonas atienden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Toda la Región del Maule. El traslado va incluido en la cotización, para que sepas el total antes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto demora la instalación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una casa normal queda lista en un día. Desde que nos escribes, en 3 días tienes la propuesta, y la instalación se agenda según cuándo estén los equipos."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "¿Quién compra los equipos?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -1223,15 +1345,7 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
       "name": "¿Qué pasa si se corta la luz?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cuando vuelve, todo se prende solo y queda como estaba. Si agregas una batería de respaldo, además te avisa del corte."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Es una alarma?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. No hay guardias ni central de monitoreo. Los avisos te llegan a ti y a quien tú elijas. Si necesitas vigilancia las 24 horas, lo indicado es una alarma con monitoreo."
+        "text": "Cuando vuelve, el sistema se reconecta solo. Con una batería de respaldo, además te avisa del corte y de cuando vuelve."
       }
     },
     {
@@ -1264,6 +1378,14 @@ footer { background: var(--noche); color: #8693AE; text-align: center; font-size
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Todo sigue funcionando igual y sin pagar nada. Las dudas por WhatsApp siguen sin costo. Solo se cobra una visita por una falla que no venga de nuestra instalación, y te decimos el precio antes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es una alarma?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, es domótica: tu casa automatizada para el día a día. Además te avisa al celular, a ti y a quien tú elijas, si se abre una puerta o hay movimiento. No hay guardias ni central de monitoreo; si necesitas vigilancia las 24 horas, lo indicado es una alarma con monitoreo."
       }
     }
   ]
